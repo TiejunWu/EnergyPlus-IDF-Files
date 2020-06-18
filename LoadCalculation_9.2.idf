@@ -1,0 +1,3498 @@
+!-Generator IDFEditor 1.50
+!-Option SortedOrder
+
+!-NOTE: All comments with '!-' are ignored by the IDFEditor and are generated automatically.
+!-      Use '!' comments if they need to be retained when using the IDFEditor.
+
+
+!-   ===========  ALL OBJECTS IN CLASS: VERSION ===========
+
+Version,
+    9.2;                     !- Version Identifier
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SIMULATIONCONTROL ===========
+
+SimulationControl,
+    Yes,                     !- Do Zone Sizing Calculation
+    No,                      !- Do System Sizing Calculation
+    No,                      !- Do Plant Sizing Calculation
+    Yes,                     !- Run Simulation for Sizing Periods
+    No;                      !- Run Simulation for Weather File Run Periods
+
+
+!-   ===========  ALL OBJECTS IN CLASS: BUILDING ===========
+
+Building,
+    Building 1,              !- Name
+    ,                        !- North Axis {deg}
+    ,                        !- Terrain
+    0.04,                    !- Loads Convergence Tolerance Value
+    0.4,                     !- Temperature Convergence Tolerance Value {deltaC}
+    FullExterior,            !- Solar Distribution
+    25,                      !- Maximum Number of Warmup Days
+    6;                       !- Minimum Number of Warmup Days
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SURFACECONVECTIONALGORITHM:INSIDE ===========
+
+SurfaceConvectionAlgorithm:Inside,
+    CeilingDiffuser;         !- Algorithm
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SURFACECONVECTIONALGORITHM:OUTSIDE ===========
+
+SurfaceConvectionAlgorithm:Outside,
+    AdaptiveConvectionAlgorithm;  !- Algorithm
+
+
+!-   ===========  ALL OBJECTS IN CLASS: TIMESTEP ===========
+
+Timestep,
+    6;                       !- Number of Timesteps per Hour
+
+
+!-   ===========  ALL OBJECTS IN CLASS: CONVERGENCELIMITS ===========
+
+ConvergenceLimits,
+    10,                      !- Minimum System Timestep {minutes}
+    20,                      !- Maximum HVAC Iterations
+    2,                       !- Minimum Plant Iterations
+    8;                       !- Maximum Plant Iterations
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SITE:LOCATION ===========
+
+Site:Location,
+    Chicago O'hare Intl_Site_{00200},  !- Name
+    41.9949989318848,        !- Latitude {deg}
+    -87.9339981079102,       !- Longitude {deg}
+    -6,                      !- Time Zone {hr}
+    201.7776;                !- Elevation {m}
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SIZINGPERIOD:DESIGNDAY ===========
+
+SizingPeriod:DesignDay,
+    00:HDD_Chicago O'hare Intl_{00201},  !- Name
+    1,                       !- Month
+    15,                      !- Day of Month
+    WinterDesignDay,         !- Day Type
+    -18.3333333333333,       !- Maximum Dry-Bulb Temperature {C}
+    0,                       !- Daily Dry-Bulb Temperature Range {deltaC}
+    DefaultMultipliers,      !- Dry-Bulb Temperature Range Modifier Type
+    ,                        !- Dry-Bulb Temperature Range Modifier Day Schedule Name
+    Wetbulb,                 !- Humidity Condition Type
+    -19.1574374834696,       !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+    ,                        !- Humidity Condition Day Schedule Name
+    ,                        !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+    ,                        !- Enthalpy at Maximum Dry-Bulb {J/kg}
+    ,                        !- Daily Wet-Bulb Temperature Range {deltaC}
+    98924.7014471769,        !- Barometric Pressure {Pa}
+    5.5,                     !- Wind Speed {m/s}
+    0,                       !- Wind Direction {deg}
+    No,                      !- Rain Indicator
+    No,                      !- Snow Indicator
+    No,                      !- Daylight Saving Time Indicator
+    ASHRAEClearSky,          !- Solar Model Indicator
+    ,                        !- Beam Solar Day Schedule Name
+    ,                        !- Diffuse Solar Day Schedule Name
+    ,                        !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+    ,                        !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+    0;                       !- Sky Clearness
+
+
+!-   ===========  ALL OBJECTS IN CLASS: RUNPERIOD ===========
+
+RunPeriod,
+    Run Period 1,            !- Name
+    1,                       !- Begin Month
+    1,                       !- Begin Day of Month
+    2009,                    !- Begin Year
+    12,                      !- End Month
+    31,                      !- End Day of Month
+    2009,                    !- End Year
+    Thursday,                !- Day of Week for Start Day
+    No,                      !- Use Weather File Holidays and Special Days
+    No,                      !- Use Weather File Daylight Saving Period
+    No,                      !- Apply Weekend Holiday Rule
+    Yes,                     !- Use Weather File Rain Indicators
+    Yes;                     !- Use Weather File Snow Indicators
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SITE:GROUNDREFLECTANCE ===========
+
+Site:GroundReflectance,
+    0.200000002980232,       !- January Ground Reflectance {dimensionless}
+    0.200000002980232,       !- February Ground Reflectance {dimensionless}
+    0.200000002980232,       !- March Ground Reflectance {dimensionless}
+    0.200000002980232,       !- April Ground Reflectance {dimensionless}
+    0.200000002980232,       !- May Ground Reflectance {dimensionless}
+    0.200000002980232,       !- June Ground Reflectance {dimensionless}
+    0.200000002980232,       !- July Ground Reflectance {dimensionless}
+    0.200000002980232,       !- August Ground Reflectance {dimensionless}
+    0.200000002980232,       !- September Ground Reflectance {dimensionless}
+    0.200000002980232,       !- October Ground Reflectance {dimensionless}
+    0.200000002980232,       !- November Ground Reflectance {dimensionless}
+    0.200000002980232;       !- December Ground Reflectance {dimensionless}
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SCHEDULETYPELIMITS ===========
+
+ScheduleTypeLimits,
+    Zone_Zone for space CoreSpace_CoreSpace_{00270} Thermostat Schedule Type Limits,  !- Name
+    0,                       !- Lower Limit Value
+    4,                       !- Upper Limit Value
+    DISCRETE;                !- Numeric Type
+
+ScheduleTypeLimits,
+    Temperature,             !- Name
+    -100,                    !- Lower Limit Value
+    200,                     !- Upper Limit Value
+    Continuous,              !- Numeric Type
+    temperature;             !- Unit Type
+
+ScheduleTypeLimits,
+    Fraction,                !- Name
+    0,                       !- Lower Limit Value
+    1,                       !- Upper Limit Value
+    Continuous,              !- Numeric Type
+    dimensionless;           !- Unit Type
+
+ScheduleTypeLimits,
+    Zone_Zone for space EastSpace_EastSpace_{00268} Thermostat Schedule Type Limits,  !- Name
+    0,                       !- Lower Limit Value
+    4,                       !- Upper Limit Value
+    DISCRETE;                !- Numeric Type
+
+ScheduleTypeLimits,
+    Zone_Zone for space NorthSpace_NorthSpace_{00266} Thermostat Schedule Type Limits,  !- Name
+    0,                       !- Lower Limit Value
+    4,                       !- Upper Limit Value
+    DISCRETE;                !- Numeric Type
+
+ScheduleTypeLimits,
+    Zone_Zone for space SouthSpace_SouthSpace_{00264} Thermostat Schedule Type Limits,  !- Name
+    0,                       !- Lower Limit Value
+    4,                       !- Upper Limit Value
+    DISCRETE;                !- Numeric Type
+
+ScheduleTypeLimits,
+    Zone_Zone for space WestSpace_WestSpace_{00262} Thermostat Schedule Type Limits,  !- Name
+    0,                       !- Lower Limit Value
+    4,                       !- Upper Limit Value
+    DISCRETE;                !- Numeric Type
+
+ScheduleTypeLimits,
+    ActivityLevel,           !- Name
+    0,                       !- Lower Limit Value
+    ,                        !- Upper Limit Value
+    Continuous,              !- Numeric Type
+    activitylevel;           !- Unit Type
+
+ScheduleTypeLimits,
+    AnyNumber;               !- Name
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:DAY:INTERVAL ===========
+
+Schedule:Day:Interval,
+    90.1 Office HVAC_Profile_Profile_3_HtgSp_UnoccupiedAvailable_{00056},  !- Name
+    Temperature,             !- Schedule Type Limits Name
+    No,                      !- Interpolate to Timestep
+    24:00,                   !- Time 1 {hh:mm}
+    18.3333333333333;        !- Value Until Time 1
+
+Schedule:Day:Interval,
+    90.1 Office HVAC_Profile_Profile_1_HtgSp_UnoccupiedAvailable_{00052},  !- Name
+    Temperature,             !- Schedule Type Limits Name
+    No,                      !- Interpolate to Timestep
+    05:00,                   !- Time 1 {hh:mm}
+    18.3333333333333,        !- Value Until Time 1
+    22:00,                   !- Time 2 {hh:mm}
+    21.1111111111111,        !- Value Until Time 2
+    24:00,                   !- Time 3 {hh:mm}
+    18.3333333333333;        !- Value Until Time 3
+
+Schedule:Day:Interval,
+    90.1 Office HVAC_Profile_Profile_2_HtgSp_UnoccupiedAvailable_{00054},  !- Name
+    Temperature,             !- Schedule Type Limits Name
+    No,                      !- Interpolate to Timestep
+    05:00,                   !- Time 1 {hh:mm}
+    18.3333333333333,        !- Value Until Time 1
+    18:00,                   !- Time 2 {hh:mm}
+    21.1111111111111,        !- Value Until Time 2
+    24:00,                   !- Time 3 {hh:mm}
+    18.3333333333333;        !- Value Until Time 3
+
+Schedule:Day:Interval,
+    VRF10_Thermostat_HtgSp_at_WDD,  !- Name
+    Temperature,             !- Schedule Type Limits Name
+    No,                      !- Interpolate to Timestep
+    24:00,                   !- Time 1 {hh:mm}
+    21.1111111111111;        !- Value Until Time 1
+
+Schedule:Day:Interval,
+    90.1 Office HVAC_Profile_Profile_3_ClgSp_UnoccupiedAvailable_{00048},  !- Name
+    Temperature,             !- Schedule Type Limits Name
+    No,                      !- Interpolate to Timestep
+    24:00,                   !- Time 1 {hh:mm}
+    26.6666666666667;        !- Value Until Time 1
+
+Schedule:Day:Interval,
+    90.1 Office HVAC_Profile_Profile_1_ClgSp_UnoccupiedAvailable_{00044},  !- Name
+    Temperature,             !- Schedule Type Limits Name
+    No,                      !- Interpolate to Timestep
+    05:00,                   !- Time 1 {hh:mm}
+    26.6666666666667,        !- Value Until Time 1
+    22:00,                   !- Time 2 {hh:mm}
+    23.8888888888889,        !- Value Until Time 2
+    24:00,                   !- Time 3 {hh:mm}
+    26.6666666666667;        !- Value Until Time 3
+
+Schedule:Day:Interval,
+    90.1 Office HVAC_Profile_Profile_2_ClgSp_UnoccupiedAvailable_{00046},  !- Name
+    Temperature,             !- Schedule Type Limits Name
+    No,                      !- Interpolate to Timestep
+    05:00,                   !- Time 1 {hh:mm}
+    26.6666666666667,        !- Value Until Time 1
+    18:00,                   !- Time 2 {hh:mm}
+    23.8888888888889,        !- Value Until Time 2
+    24:00,                   !- Time 3 {hh:mm}
+    26.6666666666667;        !- Value Until Time 3
+
+Schedule:Day:Interval,
+    VRF10_Thermostat_ClgSp_at_WDD,  !- Name
+    Temperature,             !- Schedule Type Limits Name
+    No,                      !- Interpolate to Timestep
+    24:00,                   !- Time 1 {hh:mm}
+    23.8888888888889;        !- Value Until Time 1
+
+Schedule:Day:Interval,
+    Schedule14_Profile_Profile_4_{00063},  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    No,                      !- Interpolate to Timestep
+    24:00,                   !- Time 1 {hh:mm}
+    0.05;                    !- Value Until Time 1
+
+Schedule:Day:Interval,
+    Schedule14_Profile_Profile_2_{00061},  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    No,                      !- Interpolate to Timestep
+    05:00,                   !- Time 1 {hh:mm}
+    0.05,                    !- Value Until Time 1
+    07:00,                   !- Time 2 {hh:mm}
+    0.1,                     !- Value Until Time 2
+    08:00,                   !- Time 3 {hh:mm}
+    0.3,                     !- Value Until Time 3
+    12:00,                   !- Time 4 {hh:mm}
+    0.9,                     !- Value Until Time 4
+    13:00,                   !- Time 5 {hh:mm}
+    0.8,                     !- Value Until Time 5
+    17:00,                   !- Time 6 {hh:mm}
+    0.9,                     !- Value Until Time 6
+    18:00,                   !- Time 7 {hh:mm}
+    0.5,                     !- Value Until Time 7
+    20:00,                   !- Time 8 {hh:mm}
+    0.3,                     !- Value Until Time 8
+    21:00,                   !- Time 9 {hh:mm}
+    0.2,                     !- Value Until Time 9
+    22:00,                   !- Time 10 {hh:mm}
+    0.21,                    !- Value Until Time 10
+    23:00,                   !- Time 11 {hh:mm}
+    0.1,                     !- Value Until Time 11
+    24:00,                   !- Time 12 {hh:mm}
+    0.05;                    !- Value Until Time 12
+
+Schedule:Day:Interval,
+    Schedule14_Profile_Profile_3_{00062},  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    No,                      !- Interpolate to Timestep
+    06:00,                   !- Time 1 {hh:mm}
+    0.05,                    !- Value Until Time 1
+    08:00,                   !- Time 2 {hh:mm}
+    0.1,                     !- Value Until Time 2
+    12:00,                   !- Time 3 {hh:mm}
+    0.3,                     !- Value Until Time 3
+    17:00,                   !- Time 4 {hh:mm}
+    0.15,                    !- Value Until Time 4
+    24:00,                   !- Time 5 {hh:mm}
+    0.05;                    !- Value Until Time 5
+
+Schedule:Day:Interval,
+    Schedule14_Profile_Profile_1_{00060},  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    No,                      !- Interpolate to Timestep
+    05:00,                   !- Time 1 {hh:mm}
+    0.05,                    !- Value Until Time 1
+    23:00,                   !- Time 2 {hh:mm}
+    1,                       !- Value Until Time 2
+    24:00,                   !- Time 3 {hh:mm}
+    0.05;                    !- Value Until Time 3
+
+Schedule:Day:Interval,
+    AllOffDesignDay,         !- Name
+    Fraction,                !- Schedule Type Limits Name
+    No,                      !- Interpolate to Timestep
+    24:00,                   !- Time 1 {hh:mm}
+    0;                       !- Value Until Time 1
+
+Schedule:Day:Interval,
+    Schedule15_Profile_Profile_4_{00069},  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    No,                      !- Interpolate to Timestep
+    06:00,                   !- Time 1 {hh:mm}
+    0,                       !- Value Until Time 1
+    18:00,                   !- Time 2 {hh:mm}
+    0.05,                    !- Value Until Time 2
+    24:00,                   !- Time 3 {hh:mm}
+    0;                       !- Value Until Time 3
+
+Schedule:Day:Interval,
+    Schedule15_Profile_Profile_2_{00067},  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    No,                      !- Interpolate to Timestep
+    06:00,                   !- Time 1 {hh:mm}
+    0,                       !- Value Until Time 1
+    07:00,                   !- Time 2 {hh:mm}
+    0.1,                     !- Value Until Time 2
+    08:00,                   !- Time 3 {hh:mm}
+    0.2,                     !- Value Until Time 3
+    12:00,                   !- Time 4 {hh:mm}
+    0.95,                    !- Value Until Time 4
+    13:00,                   !- Time 5 {hh:mm}
+    0.5,                     !- Value Until Time 5
+    17:00,                   !- Time 6 {hh:mm}
+    0.95,                    !- Value Until Time 6
+    18:00,                   !- Time 7 {hh:mm}
+    0.3,                     !- Value Until Time 7
+    22:00,                   !- Time 8 {hh:mm}
+    0.1,                     !- Value Until Time 8
+    24:00,                   !- Time 9 {hh:mm}
+    0.05;                    !- Value Until Time 9
+
+Schedule:Day:Interval,
+    Schedule15_Profile_Profile_3_{00068},  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    No,                      !- Interpolate to Timestep
+    06:00,                   !- Time 1 {hh:mm}
+    0,                       !- Value Until Time 1
+    08:00,                   !- Time 2 {hh:mm}
+    0.1,                     !- Value Until Time 2
+    12:00,                   !- Time 3 {hh:mm}
+    0.3,                     !- Value Until Time 3
+    17:00,                   !- Time 4 {hh:mm}
+    0.1,                     !- Value Until Time 4
+    19:00,                   !- Time 5 {hh:mm}
+    0.05,                    !- Value Until Time 5
+    24:00,                   !- Time 6 {hh:mm}
+    0;                       !- Value Until Time 6
+
+Schedule:Day:Interval,
+    Schedule15_Profile_Profile_1_{00066},  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    No,                      !- Interpolate to Timestep
+    06:00,                   !- Time 1 {hh:mm}
+    0,                       !- Value Until Time 1
+    22:00,                   !- Time 2 {hh:mm}
+    1,                       !- Value Until Time 2
+    24:00,                   !- Time 3 {hh:mm}
+    0;                       !- Value Until Time 3
+
+Schedule:Day:Interval,
+    AllOffDesignDay 1,       !- Name
+    Fraction,                !- Schedule Type Limits Name
+    No,                      !- Interpolate to Timestep
+    24:00,                   !- Time 1 {hh:mm}
+    0;                       !- Value Until Time 1
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:WEEK:DAILY ===========
+
+Schedule:Week:Daily,
+    Schedule13_{00058},      !- Name
+    90.1 Office HVAC_Profile_Profile_3_HtgSp_UnoccupiedAvailable_{00056},  !- Sunday Schedule:Day Name
+    90.1 Office HVAC_Profile_Profile_1_HtgSp_UnoccupiedAvailable_{00052},  !- Monday Schedule:Day Name
+    90.1 Office HVAC_Profile_Profile_1_HtgSp_UnoccupiedAvailable_{00052},  !- Tuesday Schedule:Day Name
+    90.1 Office HVAC_Profile_Profile_1_HtgSp_UnoccupiedAvailable_{00052},  !- Wednesday Schedule:Day Name
+    90.1 Office HVAC_Profile_Profile_1_HtgSp_UnoccupiedAvailable_{00052},  !- Thursday Schedule:Day Name
+    90.1 Office HVAC_Profile_Profile_1_HtgSp_UnoccupiedAvailable_{00052},  !- Friday Schedule:Day Name
+    90.1 Office HVAC_Profile_Profile_2_HtgSp_UnoccupiedAvailable_{00054},  !- Saturday Schedule:Day Name
+    90.1 Office HVAC_Profile_Profile_3_HtgSp_UnoccupiedAvailable_{00056},  !- Holiday Schedule:Day Name
+    90.1 Office HVAC_Profile_Profile_1_HtgSp_UnoccupiedAvailable_{00052},  !- SummerDesignDay Schedule:Day Name
+    VRF10_Thermostat_HtgSp_at_WDD,  !- WinterDesignDay Schedule:Day Name
+    90.1 Office HVAC_Profile_Profile_3_HtgSp_UnoccupiedAvailable_{00056},  !- CustomDay1 Schedule:Day Name
+    90.1 Office HVAC_Profile_Profile_3_HtgSp_UnoccupiedAvailable_{00056};  !- CustomDay2 Schedule:Day Name
+
+Schedule:Week:Daily,
+    Schedule13_{00050},      !- Name
+    90.1 Office HVAC_Profile_Profile_3_ClgSp_UnoccupiedAvailable_{00048},  !- Sunday Schedule:Day Name
+    90.1 Office HVAC_Profile_Profile_1_ClgSp_UnoccupiedAvailable_{00044},  !- Monday Schedule:Day Name
+    90.1 Office HVAC_Profile_Profile_1_ClgSp_UnoccupiedAvailable_{00044},  !- Tuesday Schedule:Day Name
+    90.1 Office HVAC_Profile_Profile_1_ClgSp_UnoccupiedAvailable_{00044},  !- Wednesday Schedule:Day Name
+    90.1 Office HVAC_Profile_Profile_1_ClgSp_UnoccupiedAvailable_{00044},  !- Thursday Schedule:Day Name
+    90.1 Office HVAC_Profile_Profile_1_ClgSp_UnoccupiedAvailable_{00044},  !- Friday Schedule:Day Name
+    90.1 Office HVAC_Profile_Profile_2_ClgSp_UnoccupiedAvailable_{00046},  !- Saturday Schedule:Day Name
+    90.1 Office HVAC_Profile_Profile_3_ClgSp_UnoccupiedAvailable_{00048},  !- Holiday Schedule:Day Name
+    90.1 Office HVAC_Profile_Profile_1_ClgSp_UnoccupiedAvailable_{00044},  !- SummerDesignDay Schedule:Day Name
+    VRF10_Thermostat_ClgSp_at_WDD,  !- WinterDesignDay Schedule:Day Name
+    90.1 Office HVAC_Profile_Profile_3_ClgSp_UnoccupiedAvailable_{00048},  !- CustomDay1 Schedule:Day Name
+    90.1 Office HVAC_Profile_Profile_3_ClgSp_UnoccupiedAvailable_{00048};  !- CustomDay2 Schedule:Day Name
+
+Schedule:Week:Daily,
+    Schedule14_{00064},      !- Name
+    Schedule14_Profile_Profile_4_{00063},  !- Sunday Schedule:Day Name
+    Schedule14_Profile_Profile_2_{00061},  !- Monday Schedule:Day Name
+    Schedule14_Profile_Profile_2_{00061},  !- Tuesday Schedule:Day Name
+    Schedule14_Profile_Profile_2_{00061},  !- Wednesday Schedule:Day Name
+    Schedule14_Profile_Profile_2_{00061},  !- Thursday Schedule:Day Name
+    Schedule14_Profile_Profile_2_{00061},  !- Friday Schedule:Day Name
+    Schedule14_Profile_Profile_3_{00062},  !- Saturday Schedule:Day Name
+    Schedule14_Profile_Profile_4_{00063},  !- Holiday Schedule:Day Name
+    Schedule14_Profile_Profile_1_{00060},  !- SummerDesignDay Schedule:Day Name
+    AllOffDesignDay,         !- WinterDesignDay Schedule:Day Name
+    Schedule14_Profile_Profile_4_{00063},  !- CustomDay1 Schedule:Day Name
+    Schedule14_Profile_Profile_4_{00063};  !- CustomDay2 Schedule:Day Name
+
+Schedule:Week:Daily,
+    Schedule15_{00070},      !- Name
+    Schedule15_Profile_Profile_4_{00069},  !- Sunday Schedule:Day Name
+    Schedule15_Profile_Profile_2_{00067},  !- Monday Schedule:Day Name
+    Schedule15_Profile_Profile_2_{00067},  !- Tuesday Schedule:Day Name
+    Schedule15_Profile_Profile_2_{00067},  !- Wednesday Schedule:Day Name
+    Schedule15_Profile_Profile_2_{00067},  !- Thursday Schedule:Day Name
+    Schedule15_Profile_Profile_2_{00067},  !- Friday Schedule:Day Name
+    Schedule15_Profile_Profile_3_{00068},  !- Saturday Schedule:Day Name
+    Schedule15_Profile_Profile_4_{00069},  !- Holiday Schedule:Day Name
+    Schedule15_Profile_Profile_1_{00066},  !- SummerDesignDay Schedule:Day Name
+    AllOffDesignDay 1,       !- WinterDesignDay Schedule:Day Name
+    Schedule15_Profile_Profile_4_{00069},  !- CustomDay1 Schedule:Day Name
+    Schedule15_Profile_Profile_4_{00069};  !- CustomDay2 Schedule:Day Name
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:YEAR ===========
+
+Schedule:Year,
+    90.1 Office HVAC_HtgSp_{00051},  !- Name
+    Temperature,             !- Schedule Type Limits Name
+    Schedule13_{00058},      !- Schedule:Week Name 1
+    1,                       !- Start Month 1
+    1,                       !- Start Day 1
+    12,                      !- End Month 1
+    31;                      !- End Day 1
+
+Schedule:Year,
+    90.1 Office HVAC_ClgSp_{00043},  !- Name
+    Temperature,             !- Schedule Type Limits Name
+    Schedule13_{00050},      !- Schedule:Week Name 1
+    1,                       !- Start Month 1
+    1,                       !- Start Day 1
+    12,                      !- End Month 1
+    31;                      !- End Day 1
+
+Schedule:Year,
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Schedule14_{00064},      !- Schedule:Week Name 1
+    1,                       !- Start Month 1
+    1,                       !- Start Day 1
+    12,                      !- End Month 1
+    31;                      !- End Day 1
+
+Schedule:Year,
+    90.1 Office Occupancy_Schedule15_{00065},  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Schedule15_{00070},      !- Schedule:Week Name 1
+    1,                       !- Start Month 1
+    1,                       !- Start Day 1
+    12,                      !- End Month 1
+    31;                      !- End Day 1
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:COMPACT ===========
+
+Schedule:Compact,
+    Zone_Zone for space CoreSpace_CoreSpace_{00270} Thermostat Schedule,  !- Name
+    Zone_Zone for space CoreSpace_CoreSpace_{00270} Thermostat Schedule Type Limits,  !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    4;                       !- Field 4
+
+Schedule:Compact,
+    Zone_Zone for space EastSpace_EastSpace_{00268} Thermostat Schedule,  !- Name
+    Zone_Zone for space EastSpace_EastSpace_{00268} Thermostat Schedule Type Limits,  !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    4;                       !- Field 4
+
+Schedule:Compact,
+    Zone_Zone for space NorthSpace_NorthSpace_{00266} Thermostat Schedule,  !- Name
+    Zone_Zone for space NorthSpace_NorthSpace_{00266} Thermostat Schedule Type Limits,  !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    4;                       !- Field 4
+
+Schedule:Compact,
+    Zone_Zone for space SouthSpace_SouthSpace_{00264} Thermostat Schedule,  !- Name
+    Zone_Zone for space SouthSpace_SouthSpace_{00264} Thermostat Schedule Type Limits,  !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    4;                       !- Field 4
+
+Schedule:Compact,
+    Zone_Zone for space WestSpace_WestSpace_{00262} Thermostat Schedule,  !- Name
+    Zone_Zone for space WestSpace_WestSpace_{00262} Thermostat Schedule Type Limits,  !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    4;                       !- Field 4
+
+Schedule:Compact,
+    Schedule_SpaceInfiltration_EastSpace{00191},  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: WinterDesignDay,    !- Field 2
+    Until: 24:00,            !- Field 3
+    1,                       !- Field 4
+    For: SummerDesignDay,    !- Field 5
+    Until: 24:00,            !- Field 6
+    0.8333333,               !- Field 7
+    For: AllOtherDays,       !- Field 8
+    Until: 24:00,            !- Field 9
+    0.4166667;               !- Field 10
+
+Schedule:Compact,
+    Schedule_SpaceInfiltration_NorthSpace{00175},  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: WinterDesignDay,    !- Field 2
+    Until: 24:00,            !- Field 3
+    1,                       !- Field 4
+    For: SummerDesignDay,    !- Field 5
+    Until: 24:00,            !- Field 6
+    0.8333333,               !- Field 7
+    For: AllOtherDays,       !- Field 8
+    Until: 24:00,            !- Field 9
+    0.4166667;               !- Field 10
+
+Schedule:Compact,
+    Schedule_SpaceInfiltration_SouthSpace{00143},  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: WinterDesignDay,    !- Field 2
+    Until: 24:00,            !- Field 3
+    1,                       !- Field 4
+    For: SummerDesignDay,    !- Field 5
+    Until: 24:00,            !- Field 6
+    0.8333333,               !- Field 7
+    For: AllOtherDays,       !- Field 8
+    Until: 24:00,            !- Field 9
+    0.4166667;               !- Field 10
+
+Schedule:Compact,
+    Schedule_SpaceInfiltration_WestSpace{00159},  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: WinterDesignDay,    !- Field 2
+    Until: 24:00,            !- Field 3
+    1,                       !- Field 4
+    For: SummerDesignDay,    !- Field 5
+    Until: 24:00,            !- Field 6
+    0.8333333,               !- Field 7
+    For: AllOtherDays,       !- Field 8
+    Until: 24:00,            !- Field 9
+    0.4166667;               !- Field 10
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:CONSTANT ===========
+
+Schedule:Constant,
+    Schedule_SchType_Constant_{00136},  !- Name
+    ActivityLevel,           !- Schedule Type Limits Name
+    161.189105;              !- Hourly Value
+
+Schedule:Constant,
+    Schedule_SchType_Constant_{00152},  !- Name
+    ActivityLevel,           !- Schedule Type Limits Name
+    219.803325;              !- Hourly Value
+
+Schedule:Constant,
+    Schedule_SchType_Constant_{00168},  !- Name
+    ActivityLevel,           !- Schedule Type Limits Name
+    131.881995;              !- Hourly Value
+
+Schedule:Constant,
+    Schedule_SchType_Constant_{00184},  !- Name
+    ActivityLevel,           !- Schedule Type Limits Name
+    102.574891707865;        !- Hourly Value
+
+Schedule:Constant,
+    Schedule_SchType_Constant_{00195},  !- Name
+    ActivityLevel,           !- Schedule Type Limits Name
+    131.881995;              !- Hourly Value
+
+Schedule:Constant,
+    Always On Discrete,      !- Name
+    ,                        !- Schedule Type Limits Name
+    1;                       !- Hourly Value
+
+Schedule:Constant,
+    Always Off Discrete,     !- Name
+    ,                        !- Schedule Type Limits Name
+    0;                       !- Hourly Value
+
+Schedule:Constant,
+    Always On Continuous,    !- Name
+    ,                        !- Schedule Type Limits Name
+    1;                       !- Hourly Value
+
+
+!-   ===========  ALL OBJECTS IN CLASS: MATERIAL ===========
+
+Material,
+    Default Ceiling Assembly_Acoustical tile_{00015},  !- Name
+    MediumRough,             !- Roughness
+    0.00635,                 !- Thickness {m}
+    0.1,                     !- Conductivity {W/m-K}
+    336.353725722949,        !- Density {kg/m3}
+    795.491990017891,        !- Specific Heat {J/kg-K}
+    0.449999988079071,       !- Thermal Absorptance
+    0.449999988079071,       !- Solar Absorptance
+    0.449999988079071;       !- Visible Absorptance
+
+Material,
+    Default Ceiling Assembly_R-11 batt insulation_{00014},  !- Name
+    MediumRough,             !- Roughness
+    0.0889,                  !- Thickness {m}
+    0.1,                     !- Conductivity {W/m-K}
+    8.0084220410226,         !- Density {kg/m3}
+    837.360012477636,        !- Specific Heat {J/kg-K}
+    0.449999988079071,       !- Thermal Absorptance
+    0.449999988079071,       !- Solar Absorptance
+    0.449999988079071;       !- Visible Absorptance
+
+Material,
+    Default Ext Wall Assembly_Face brick_{00020},  !- Name
+    MediumRough,             !- Roughness
+    0.101589838314056,       !- Thickness {m}
+    1.33266591698885,        !- Conductivity {W/m-K}
+    2002.10551025565,        !- Density {kg/m3}
+    921.095995008945,        !- Specific Heat {J/kg-K}
+    0.899999976158142,       !- Thermal Absorptance
+    0.899999976158142,       !- Solar Absorptance
+    0.899999976158142;       !- Visible Absorptance
+
+Material,
+    Default Ext Wall Assembly_Gypsum board_{00017},  !- Name
+    MediumRough,             !- Roughness
+    0.015875,                !- Thickness {m}
+    0.160958358816914,       !- Conductivity {W/m-K}
+    800.84220410226,         !- Density {kg/m3}
+    1088.56796007156,        !- Specific Heat {J/kg-K}
+    0.449999988079071,       !- Thermal Absorptance
+    0.449999988079071,       !- Solar Absorptance
+    0.449999988079071;       !- Visible Absorptance
+
+Material,
+    Default Ext Wall Assembly_LW concrete block_{00019},  !- Name
+    MediumRough,             !- Roughness
+    0.101521262073517,       !- Thickness {m}
+    0.380761697936803,       !- Conductivity {W/m-K}
+    608.640075117717,        !- Density {kg/m3}
+    837.360012477636,        !- Specific Heat {J/kg-K}
+    0.9,                     !- Thermal Absorptance
+    0.7,                     !- Solar Absorptance
+    0.7;                     !- Visible Absorptance
+
+Material,
+    Default Int Wall Assembly_5/8-in gypsum board_{00022},  !- Name
+    MediumRough,             !- Roughness
+    0.015875,                !- Thickness {m}
+    0.160958358816914,       !- Conductivity {W/m-K}
+    800.84220410226,         !- Density {kg/m3}
+    1088.56796007156,        !- Specific Heat {J/kg-K}
+    0.449999988079071,       !- Thermal Absorptance
+    0.449999988079071,       !- Solar Absorptance
+    0.449999988079071;       !- Visible Absorptance
+
+Material,
+    Default Int Wall Assembly_5/8-in gypsum board_{00024},  !- Name
+    MediumRough,             !- Roughness
+    0.015875,                !- Thickness {m}
+    0.160958358816914,       !- Conductivity {W/m-K}
+    800.84220410226,         !- Density {kg/m3}
+    1088.56796007156,        !- Specific Heat {J/kg-K}
+    0.449999988079071,       !- Thermal Absorptance
+    0.449999988079071,       !- Solar Absorptance
+    0.449999988079071;       !- Visible Absorptance
+
+Material,
+    Default Roof Assembly_22 gage steel deck_{00032},  !- Name
+    MediumRough,             !- Roughness
+    0.000863600046932697,    !- Thickness {m}
+    44.5795283755779,        !- Conductivity {W/m-K}
+    7832.2367561201,         !- Density {kg/m3}
+    502.415988770127,        !- Specific Heat {J/kg-K}
+    0.449999988079071,       !- Thermal Absorptance
+    0.449999988079071,       !- Solar Absorptance
+    0.449999988079071;       !- Visible Absorptance
+
+Material,
+    Default Roof Assembly_Built-up roofing_{00030},  !- Name
+    MediumRough,             !- Roughness
+    0.009525,                !- Thickness {m}
+    0.162671779365391,       !- Conductivity {W/m-K}
+    1121.17908574316,        !- Density {kg/m3}
+    1465.37997504473,        !- Specific Heat {J/kg-K}
+    0.899999976158142,       !- Thermal Absorptance
+    0.899999976158142,       !- Solar Absorptance
+    0.899999976158142;       !- Visible Absorptance
+
+Material,
+    Default Roof Assembly_R-30 board insulation_{00031},  !- Name
+    MediumRough,             !- Roughness
+    0.110489997577667,       !- Thickness {m}
+    0.0207688201805297,      !- Conductivity {W/m-K}
+    32.0336881640904,        !- Density {kg/m3}
+    921.095995008945,        !- Specific Heat {J/kg-K}
+    0.9,                     !- Thermal Absorptance
+    0.7,                     !- Solar Absorptance
+    0.7;                     !- Visible Absorptance
+
+Material,
+    Default Slab on Grade Floor Assembly_6-in LW concrete_{00035},  !- Name
+    MediumRough,             !- Roughness
+    0.1524,                  !- Thickness {m}
+    0.173073502578996,       !- Conductivity {W/m-K}
+    640.673763281808,        !- Density {kg/m3}
+    837.360012477636,        !- Specific Heat {J/kg-K}
+    0.9,                     !- Thermal Absorptance
+    0,                       !- Solar Absorptance
+    0;                       !- Visible Absorptance
+
+Material,
+    Default Slab on Grade Floor Assembly_Terrazzo_{00034},  !- Name
+    MediumRough,             !- Roughness
+    0.0127,                  !- Thickness {m}
+    0.901418667828739,       !- Conductivity {W/m-K}
+    2562.69505312723,        !- Density {kg/m3}
+    795.491990017891,        !- Specific Heat {J/kg-K}
+    0.449999988079071,       !- Thermal Absorptance
+    0.449999988079071,       !- Solar Absorptance
+    0.449999988079071;       !- Visible Absorptance
+
+
+!-   ===========  ALL OBJECTS IN CLASS: MATERIAL:NOMASS ===========
+
+Material:NoMass,
+    Sample Door Assembly_OpaqueMaterial_{00039},  !- Name
+    MediumRough,             !- Roughness
+    0.251586004284484,       !- Thermal Resistance {m2-K/W}
+    0.9,                     !- Thermal Absorptance
+    0.7,                     !- Solar Absorptance
+    0.7;                     !- Visible Absorptance
+
+
+!-   ===========  ALL OBJECTS IN CLASS: MATERIAL:AIRGAP ===========
+
+Material:AirGap,
+    Default Ext Wall AssemblyAir space_{00018},  !- Name
+    0.160260286618674;       !- Thermal Resistance {m2-K/W}
+
+Material:AirGap,
+    Default Int Wall AssemblyAir space_{00023},  !- Name
+    0.160260286618674;       !- Thermal Resistance {m2-K/W}
+
+
+!-   ===========  ALL OBJECTS IN CLASS: WINDOWMATERIAL:SIMPLEGLAZINGSYSTEM ===========
+
+WindowMaterial:SimpleGlazingSystem,
+    Sample Door Assembly_GlassMaterial_{00037},  !- Name
+    4.37226240169573,        !- U-Factor {W/m2-K}
+    0.25,                    !- Solar Heat Gain Coefficient
+    0.75;                    !- Visible Transmittance
+
+WindowMaterial:SimpleGlazingSystem,
+    Sample Window Assembly_{00041},  !- Name
+    3.33881864129239,        !- U-Factor {W/m2-K}
+    0.759999990463257,       !- Solar Heat Gain Coefficient
+    0.730000019073486;       !- Visible Transmittance
+
+
+!-   ===========  ALL OBJECTS IN CLASS: CONSTRUCTION ===========
+
+Construction,
+    Construction 1,          !- Name
+    Sample Window Assembly_{00041};  !- Outside Layer
+
+Construction,
+    Default Ceiling Assembly_{00016},  !- Name
+    Default Ceiling Assembly_R-11 batt insulation_{00014},  !- Outside Layer
+    Default Ceiling Assembly_Acoustical tile_{00015};  !- Layer 2
+
+Construction,
+    Default Ceiling Assembly_{00016}_Reversed,  !- Name
+    Default Ceiling Assembly_Acoustical tile_{00015},  !- Outside Layer
+    Default Ceiling Assembly_R-11 batt insulation_{00014};  !- Layer 2
+
+Construction,
+    Default Ext Wall Assembly_{00021},  !- Name
+    Default Ext Wall Assembly_Face brick_{00020},  !- Outside Layer
+    Default Ext Wall Assembly_LW concrete block_{00019},  !- Layer 2
+    Default Ext Wall AssemblyAir space_{00018},  !- Layer 3
+    Default Ext Wall Assembly_Gypsum board_{00017};  !- Layer 4
+
+Construction,
+    Default Int Wall Assembly_{00025},  !- Name
+    Default Int Wall Assembly_5/8-in gypsum board_{00024},  !- Outside Layer
+    Default Int Wall AssemblyAir space_{00023},  !- Layer 2
+    Default Int Wall Assembly_5/8-in gypsum board_{00022};  !- Layer 3
+
+Construction,
+    Default Int Wall Assembly_{00025} Reversed,  !- Name
+    Default Int Wall Assembly_5/8-in gypsum board_{00022},  !- Outside Layer
+    Default Int Wall AssemblyAir space_{00023},  !- Layer 2
+    Default Int Wall Assembly_5/8-in gypsum board_{00024};  !- Layer 3
+
+Construction,
+    Default Roof Assembly_{00033},  !- Name
+    Default Roof Assembly_Built-up roofing_{00030},  !- Outside Layer
+    Default Roof Assembly_R-30 board insulation_{00031},  !- Layer 2
+    Default Roof Assembly_22 gage steel deck_{00032};  !- Layer 3
+
+Construction,
+    Default Slab on Grade Floor Assembly_{00036},  !- Name
+    Default Slab on Grade Floor Assembly_6-in LW concrete_{00035},  !- Outside Layer
+    Default Slab on Grade Floor Assembly_Terrazzo_{00034};  !- Layer 2
+
+Construction,
+    Sample Door Assembly_Glass_{00038},  !- Name
+    Sample Door Assembly_GlassMaterial_{00037};  !- Outside Layer
+
+Construction,
+    Sample Door Assembly_Opaque_{00040},  !- Name
+    Sample Door Assembly_OpaqueMaterial_{00039};  !- Outside Layer
+
+
+!-   ===========  ALL OBJECTS IN CLASS: GLOBALGEOMETRYRULES ===========
+
+GlobalGeometryRules,
+    UpperLeftCorner,         !- Starting Vertex Position
+    Counterclockwise,        !- Vertex Entry Direction
+    Relative,                !- Coordinate System
+    Relative,                !- Daylighting Reference Point Coordinate System
+    Relative;                !- Rectangular Surface Coordinate System
+
+
+!-   ===========  ALL OBJECTS IN CLASS: ZONE ===========
+
+Zone,
+    ThermalZone_Ceiling_{00272},  !- Name
+    ,                        !- Direction of Relative North {deg}
+    ,                        !- X Origin {m}
+    ,                        !- Y Origin {m}
+    ,                        !- Z Origin {m}
+    ,                        !- Type
+    ,                        !- Multiplier
+    ,                        !- Ceiling Height {m}
+    ,                        !- Volume {m3}
+    ,                        !- Floor Area {m2}
+    TARP;                    !- Zone Inside Convection Algorithm
+
+Zone,
+    Zone_Zone for space CoreSpace_CoreSpace_{00270},  !- Name
+    ,                        !- Direction of Relative North {deg}
+    ,                        !- X Origin {m}
+    ,                        !- Y Origin {m}
+    ,                        !- Z Origin {m}
+    ,                        !- Type
+    1;                       !- Multiplier
+
+Zone,
+    Zone_Zone for space EastSpace_EastSpace_{00268},  !- Name
+    ,                        !- Direction of Relative North {deg}
+    ,                        !- X Origin {m}
+    ,                        !- Y Origin {m}
+    ,                        !- Z Origin {m}
+    ,                        !- Type
+    1;                       !- Multiplier
+
+Zone,
+    Zone_Zone for space NorthSpace_NorthSpace_{00266},  !- Name
+    ,                        !- Direction of Relative North {deg}
+    ,                        !- X Origin {m}
+    ,                        !- Y Origin {m}
+    ,                        !- Z Origin {m}
+    ,                        !- Type
+    1;                       !- Multiplier
+
+Zone,
+    Zone_Zone for space SouthSpace_SouthSpace_{00264},  !- Name
+    ,                        !- Direction of Relative North {deg}
+    ,                        !- X Origin {m}
+    ,                        !- Y Origin {m}
+    ,                        !- Z Origin {m}
+    ,                        !- Type
+    1;                       !- Multiplier
+
+Zone,
+    Zone_Zone for space WestSpace_WestSpace_{00262},  !- Name
+    ,                        !- Direction of Relative North {deg}
+    ,                        !- X Origin {m}
+    ,                        !- Y Origin {m}
+    ,                        !- Z Origin {m}
+    ,                        !- Type
+    1;                       !- Multiplier
+
+
+!-   ===========  ALL OBJECTS IN CLASS: BUILDINGSURFACE:DETAILED ===========
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_Ceiling_Floor30_{00124},  !- Name
+    Floor,                   !- Surface Type
+    Default Ceiling Assembly_{00016}_Reversed,  !- Construction Name
+    ThermalZone_Ceiling_{00272},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_SouthSpace_Ceiling4_{00079},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    40,                      !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    0,                       !- Vertex 2 Y-coordinate {m}
+    3.8,                     !- Vertex 2 Z-coordinate {m}
+    5,                       !- Vertex 3 X-coordinate {m}
+    5,                       !- Vertex 3 Y-coordinate {m}
+    3.8,                     !- Vertex 3 Z-coordinate {m}
+    35,                      !- Vertex 4 X-coordinate {m}
+    5,                       !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_Ceiling_Floor31_{00125},  !- Name
+    Floor,                   !- Surface Type
+    Default Ceiling Assembly_{00016}_Reversed,  !- Construction Name
+    ThermalZone_Ceiling_{00272},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_WestSpace_Ceiling10_{00089},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    25,                      !- Vertex 2 Y-coordinate {m}
+    3.8,                     !- Vertex 2 Z-coordinate {m}
+    5,                       !- Vertex 3 X-coordinate {m}
+    20,                      !- Vertex 3 Y-coordinate {m}
+    3.8,                     !- Vertex 3 Z-coordinate {m}
+    5,                       !- Vertex 4 X-coordinate {m}
+    5,                       !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_Ceiling_Floor32_{00126},  !- Name
+    Floor,                   !- Surface Type
+    Default Ceiling Assembly_{00016}_Reversed,  !- Construction Name
+    ThermalZone_Ceiling_{00272},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_NorthSpace_Ceiling16_{00099},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    35,                      !- Vertex 1 X-coordinate {m}
+    20,                      !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    5,                       !- Vertex 2 X-coordinate {m}
+    20,                      !- Vertex 2 Y-coordinate {m}
+    3.8,                     !- Vertex 2 Z-coordinate {m}
+    0,                       !- Vertex 3 X-coordinate {m}
+    25,                      !- Vertex 3 Y-coordinate {m}
+    3.8,                     !- Vertex 3 Z-coordinate {m}
+    40,                      !- Vertex 4 X-coordinate {m}
+    25,                      !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_Ceiling_Floor33_{00127},  !- Name
+    Floor,                   !- Surface Type
+    Default Ceiling Assembly_{00016}_Reversed,  !- Construction Name
+    ThermalZone_Ceiling_{00272},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_EastSpace_Ceiling22_{00109},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    40,                      !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    35,                      !- Vertex 2 X-coordinate {m}
+    5,                       !- Vertex 2 Y-coordinate {m}
+    3.8,                     !- Vertex 2 Z-coordinate {m}
+    35,                      !- Vertex 3 X-coordinate {m}
+    20,                      !- Vertex 3 Y-coordinate {m}
+    3.8,                     !- Vertex 3 Z-coordinate {m}
+    40,                      !- Vertex 4 X-coordinate {m}
+    25,                      !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_Ceiling_Floor34_{00128},  !- Name
+    Floor,                   !- Surface Type
+    Default Ceiling Assembly_{00016}_Reversed,  !- Construction Name
+    ThermalZone_Ceiling_{00272},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_CoreSpace_Ceiling28_{00116},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    35,                      !- Vertex 1 X-coordinate {m}
+    5,                       !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    5,                       !- Vertex 2 X-coordinate {m}
+    5,                       !- Vertex 2 Y-coordinate {m}
+    3.8,                     !- Vertex 2 Z-coordinate {m}
+    5,                       !- Vertex 3 X-coordinate {m}
+    20,                      !- Vertex 3 Y-coordinate {m}
+    3.8,                     !- Vertex 3 Z-coordinate {m}
+    35,                      !- Vertex 4 X-coordinate {m}
+    20,                      !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_Ceiling_Roof39_{00123},  !- Name
+    Roof,                    !- Surface Type
+    Default Roof Assembly_{00033},  !- Construction Name
+    ThermalZone_Ceiling_{00272},  !- Zone Name
+    Outdoors,                !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    SunExposed,              !- Sun Exposure
+    WindExposed,             !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    5,                       !- Vertex 1 Z-coordinate {m}
+    40,                      !- Vertex 2 X-coordinate {m}
+    0,                       !- Vertex 2 Y-coordinate {m}
+    5,                       !- Vertex 2 Z-coordinate {m}
+    40,                      !- Vertex 3 X-coordinate {m}
+    25,                      !- Vertex 3 Y-coordinate {m}
+    5,                       !- Vertex 3 Z-coordinate {m}
+    0,                       !- Vertex 4 X-coordinate {m}
+    25,                      !- Vertex 4 Y-coordinate {m}
+    5;                       !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_Ceiling_Wall35_{00119},  !- Name
+    Wall,                    !- Surface Type
+    Default Ext Wall Assembly_{00021},  !- Construction Name
+    ThermalZone_Ceiling_{00272},  !- Zone Name
+    Outdoors,                !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    SunExposed,              !- Sun Exposure
+    WindExposed,             !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    5,                       !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    0,                       !- Vertex 2 Y-coordinate {m}
+    3.8,                     !- Vertex 2 Z-coordinate {m}
+    40,                      !- Vertex 3 X-coordinate {m}
+    0,                       !- Vertex 3 Y-coordinate {m}
+    3.8,                     !- Vertex 3 Z-coordinate {m}
+    40,                      !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    5;                       !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_Ceiling_Wall36_{00120},  !- Name
+    Wall,                    !- Surface Type
+    Default Ext Wall Assembly_{00021},  !- Construction Name
+    ThermalZone_Ceiling_{00272},  !- Zone Name
+    Outdoors,                !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    SunExposed,              !- Sun Exposure
+    WindExposed,             !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    25,                      !- Vertex 1 Y-coordinate {m}
+    5,                       !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    25,                      !- Vertex 2 Y-coordinate {m}
+    3.8,                     !- Vertex 2 Z-coordinate {m}
+    0,                       !- Vertex 3 X-coordinate {m}
+    0,                       !- Vertex 3 Y-coordinate {m}
+    3.8,                     !- Vertex 3 Z-coordinate {m}
+    0,                       !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    5;                       !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_Ceiling_Wall37_{00121},  !- Name
+    Wall,                    !- Surface Type
+    Default Ext Wall Assembly_{00021},  !- Construction Name
+    ThermalZone_Ceiling_{00272},  !- Zone Name
+    Outdoors,                !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    SunExposed,              !- Sun Exposure
+    WindExposed,             !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    40,                      !- Vertex 1 X-coordinate {m}
+    25,                      !- Vertex 1 Y-coordinate {m}
+    5,                       !- Vertex 1 Z-coordinate {m}
+    40,                      !- Vertex 2 X-coordinate {m}
+    25,                      !- Vertex 2 Y-coordinate {m}
+    3.8,                     !- Vertex 2 Z-coordinate {m}
+    0,                       !- Vertex 3 X-coordinate {m}
+    25,                      !- Vertex 3 Y-coordinate {m}
+    3.8,                     !- Vertex 3 Z-coordinate {m}
+    0,                       !- Vertex 4 X-coordinate {m}
+    25,                      !- Vertex 4 Y-coordinate {m}
+    5;                       !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_Ceiling_Wall38_{00122},  !- Name
+    Wall,                    !- Surface Type
+    Default Ext Wall Assembly_{00021},  !- Construction Name
+    ThermalZone_Ceiling_{00272},  !- Zone Name
+    Outdoors,                !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    SunExposed,              !- Sun Exposure
+    WindExposed,             !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    40,                      !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    5,                       !- Vertex 1 Z-coordinate {m}
+    40,                      !- Vertex 2 X-coordinate {m}
+    0,                       !- Vertex 2 Y-coordinate {m}
+    3.8,                     !- Vertex 2 Z-coordinate {m}
+    40,                      !- Vertex 3 X-coordinate {m}
+    25,                      !- Vertex 3 Y-coordinate {m}
+    3.8,                     !- Vertex 3 Z-coordinate {m}
+    40,                      !- Vertex 4 X-coordinate {m}
+    25,                      !- Vertex 4 Y-coordinate {m}
+    5;                       !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_CoreSpace_Ceiling28_{00116},  !- Name
+    Ceiling,                 !- Surface Type
+    Default Ceiling Assembly_{00016},  !- Construction Name
+    Zone_Zone for space CoreSpace_CoreSpace_{00270},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_Ceiling_Floor34_{00128},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    5,                       !- Vertex 1 X-coordinate {m}
+    5,                       !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    35,                      !- Vertex 2 X-coordinate {m}
+    5,                       !- Vertex 2 Y-coordinate {m}
+    3.8,                     !- Vertex 2 Z-coordinate {m}
+    35,                      !- Vertex 3 X-coordinate {m}
+    20,                      !- Vertex 3 Y-coordinate {m}
+    3.8,                     !- Vertex 3 Z-coordinate {m}
+    5,                       !- Vertex 4 X-coordinate {m}
+    20,                      !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_CoreSpace_Floor29_{00117},  !- Name
+    Floor,                   !- Surface Type
+    Default Slab on Grade Floor Assembly_{00036},  !- Construction Name
+    Zone_Zone for space CoreSpace_CoreSpace_{00270},  !- Zone Name
+    Adiabatic,               !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    35,                      !- Vertex 1 X-coordinate {m}
+    5,                       !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    5,                       !- Vertex 2 X-coordinate {m}
+    5,                       !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    5,                       !- Vertex 3 X-coordinate {m}
+    20,                      !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    35,                      !- Vertex 4 X-coordinate {m}
+    20,                      !- Vertex 4 Y-coordinate {m}
+    0;                       !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_CoreSpace_Wall24_{00112},  !- Name
+    Wall,                    !- Surface Type
+    Default Int Wall Assembly_{00025},  !- Construction Name
+    Zone_Zone for space CoreSpace_CoreSpace_{00270},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_SouthSpace_Wall2_{00077},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    5,                       !- Vertex 1 X-coordinate {m}
+    5,                       !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    5,                       !- Vertex 2 X-coordinate {m}
+    5,                       !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    35,                      !- Vertex 3 X-coordinate {m}
+    5,                       !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    35,                      !- Vertex 4 X-coordinate {m}
+    5,                       !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_CoreSpace_Wall25_{00113},  !- Name
+    Wall,                    !- Surface Type
+    Default Int Wall Assembly_{00025},  !- Construction Name
+    Zone_Zone for space CoreSpace_CoreSpace_{00270},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_WestSpace_Wall8_{00088},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    5,                       !- Vertex 1 X-coordinate {m}
+    20,                      !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    5,                       !- Vertex 2 X-coordinate {m}
+    20,                      !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    5,                       !- Vertex 3 X-coordinate {m}
+    5,                       !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    5,                       !- Vertex 4 X-coordinate {m}
+    5,                       !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_CoreSpace_Wall26_{00114},  !- Name
+    Wall,                    !- Surface Type
+    Default Int Wall Assembly_{00025},  !- Construction Name
+    Zone_Zone for space CoreSpace_CoreSpace_{00270},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_NorthSpace_Wall14_{00092},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    35,                      !- Vertex 1 X-coordinate {m}
+    20,                      !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    35,                      !- Vertex 2 X-coordinate {m}
+    20,                      !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    5,                       !- Vertex 3 X-coordinate {m}
+    20,                      !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    5,                       !- Vertex 4 X-coordinate {m}
+    20,                      !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_CoreSpace_Wall27_{00115},  !- Name
+    Wall,                    !- Surface Type
+    Default Int Wall Assembly_{00025},  !- Construction Name
+    Zone_Zone for space CoreSpace_CoreSpace_{00270},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_EastSpace_Wall20_{00108},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    35,                      !- Vertex 1 X-coordinate {m}
+    5,                       !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    35,                      !- Vertex 2 X-coordinate {m}
+    5,                       !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    35,                      !- Vertex 3 X-coordinate {m}
+    20,                      !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    35,                      !- Vertex 4 X-coordinate {m}
+    20,                      !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_EastSpace_Ceiling22_{00109},  !- Name
+    Ceiling,                 !- Surface Type
+    Default Ceiling Assembly_{00016},  !- Construction Name
+    Zone_Zone for space EastSpace_EastSpace_{00268},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_Ceiling_Floor33_{00127},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    35,                      !- Vertex 1 X-coordinate {m}
+    5,                       !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    40,                      !- Vertex 2 X-coordinate {m}
+    0,                       !- Vertex 2 Y-coordinate {m}
+    3.8,                     !- Vertex 2 Z-coordinate {m}
+    40,                      !- Vertex 3 X-coordinate {m}
+    25,                      !- Vertex 3 Y-coordinate {m}
+    3.8,                     !- Vertex 3 Z-coordinate {m}
+    35,                      !- Vertex 4 X-coordinate {m}
+    20,                      !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_EastSpace_Floor23_{00110},  !- Name
+    Floor,                   !- Surface Type
+    Default Slab on Grade Floor Assembly_{00036},  !- Construction Name
+    Zone_Zone for space EastSpace_EastSpace_{00268},  !- Zone Name
+    Adiabatic,               !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    40,                      !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    35,                      !- Vertex 2 X-coordinate {m}
+    5,                       !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    35,                      !- Vertex 3 X-coordinate {m}
+    20,                      !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    40,                      !- Vertex 4 X-coordinate {m}
+    25,                      !- Vertex 4 Y-coordinate {m}
+    0;                       !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_EastSpace_Wall18_{00103},  !- Name
+    Wall,                    !- Surface Type
+    Default Ext Wall Assembly_{00021},  !- Construction Name
+    Zone_Zone for space EastSpace_EastSpace_{00268},  !- Zone Name
+    Outdoors,                !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    SunExposed,              !- Sun Exposure
+    WindExposed,             !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    40,                      !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    40,                      !- Vertex 2 X-coordinate {m}
+    0,                       !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    40,                      !- Vertex 3 X-coordinate {m}
+    25,                      !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    40,                      !- Vertex 4 X-coordinate {m}
+    25,                      !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_EastSpace_Wall19_{00102},  !- Name
+    Wall,                    !- Surface Type
+    Default Int Wall Assembly_{00025},  !- Construction Name
+    Zone_Zone for space EastSpace_EastSpace_{00268},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_SouthSpace_Wall3_{00078},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    35,                      !- Vertex 1 X-coordinate {m}
+    5,                       !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    35,                      !- Vertex 2 X-coordinate {m}
+    5,                       !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    40,                      !- Vertex 3 X-coordinate {m}
+    0,                       !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    40,                      !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_EastSpace_Wall20_{00108},  !- Name
+    Wall,                    !- Surface Type
+    Default Int Wall Assembly_{00025} Reversed,  !- Construction Name
+    Zone_Zone for space EastSpace_EastSpace_{00268},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_CoreSpace_Wall27_{00115},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    35,                      !- Vertex 1 X-coordinate {m}
+    20,                      !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    35,                      !- Vertex 2 X-coordinate {m}
+    20,                      !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    35,                      !- Vertex 3 X-coordinate {m}
+    5,                       !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    35,                      !- Vertex 4 X-coordinate {m}
+    5,                       !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_EastSpace_Wall21_{00107},  !- Name
+    Wall,                    !- Surface Type
+    Default Int Wall Assembly_{00025},  !- Construction Name
+    Zone_Zone for space EastSpace_EastSpace_{00268},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_NorthSpace_Wall13_{00098},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    40,                      !- Vertex 1 X-coordinate {m}
+    25,                      !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    40,                      !- Vertex 2 X-coordinate {m}
+    25,                      !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    35,                      !- Vertex 3 X-coordinate {m}
+    20,                      !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    35,                      !- Vertex 4 X-coordinate {m}
+    20,                      !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_NorthSpace_Ceiling16_{00099},  !- Name
+    Ceiling,                 !- Surface Type
+    Default Ceiling Assembly_{00016},  !- Construction Name
+    Zone_Zone for space NorthSpace_NorthSpace_{00266},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_Ceiling_Floor32_{00126},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    5,                       !- Vertex 1 X-coordinate {m}
+    20,                      !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    35,                      !- Vertex 2 X-coordinate {m}
+    20,                      !- Vertex 2 Y-coordinate {m}
+    3.8,                     !- Vertex 2 Z-coordinate {m}
+    40,                      !- Vertex 3 X-coordinate {m}
+    25,                      !- Vertex 3 Y-coordinate {m}
+    3.8,                     !- Vertex 3 Z-coordinate {m}
+    0,                       !- Vertex 4 X-coordinate {m}
+    25,                      !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_NorthSpace_Floor17_{00100},  !- Name
+    Floor,                   !- Surface Type
+    Default Slab on Grade Floor Assembly_{00036},  !- Construction Name
+    Zone_Zone for space NorthSpace_NorthSpace_{00266},  !- Zone Name
+    Adiabatic,               !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    35,                      !- Vertex 1 X-coordinate {m}
+    20,                      !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    5,                       !- Vertex 2 X-coordinate {m}
+    20,                      !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    0,                       !- Vertex 3 X-coordinate {m}
+    25,                      !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    40,                      !- Vertex 4 X-coordinate {m}
+    25,                      !- Vertex 4 Y-coordinate {m}
+    0;                       !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_NorthSpace_Wall12_{00094},  !- Name
+    Wall,                    !- Surface Type
+    Default Ext Wall Assembly_{00021},  !- Construction Name
+    Zone_Zone for space NorthSpace_NorthSpace_{00266},  !- Zone Name
+    Outdoors,                !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    SunExposed,              !- Sun Exposure
+    WindExposed,             !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    40,                      !- Vertex 1 X-coordinate {m}
+    25,                      !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    40,                      !- Vertex 2 X-coordinate {m}
+    25,                      !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    0,                       !- Vertex 3 X-coordinate {m}
+    25,                      !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    0,                       !- Vertex 4 X-coordinate {m}
+    25,                      !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_NorthSpace_Wall13_{00098},  !- Name
+    Wall,                    !- Surface Type
+    Default Int Wall Assembly_{00025} Reversed,  !- Construction Name
+    Zone_Zone for space NorthSpace_NorthSpace_{00266},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_EastSpace_Wall21_{00107},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    35,                      !- Vertex 1 X-coordinate {m}
+    20,                      !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    35,                      !- Vertex 2 X-coordinate {m}
+    20,                      !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    40,                      !- Vertex 3 X-coordinate {m}
+    25,                      !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    40,                      !- Vertex 4 X-coordinate {m}
+    25,                      !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_NorthSpace_Wall14_{00092},  !- Name
+    Wall,                    !- Surface Type
+    Default Int Wall Assembly_{00025} Reversed,  !- Construction Name
+    Zone_Zone for space NorthSpace_NorthSpace_{00266},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_CoreSpace_Wall26_{00114},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    5,                       !- Vertex 1 X-coordinate {m}
+    20,                      !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    5,                       !- Vertex 2 X-coordinate {m}
+    20,                      !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    35,                      !- Vertex 3 X-coordinate {m}
+    20,                      !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    35,                      !- Vertex 4 X-coordinate {m}
+    20,                      !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_NorthSpace_Wall15_{00093},  !- Name
+    Wall,                    !- Surface Type
+    Default Int Wall Assembly_{00025},  !- Construction Name
+    Zone_Zone for space NorthSpace_NorthSpace_{00266},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_WestSpace_Wall7_{00087},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    25,                      !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    25,                      !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    5,                       !- Vertex 3 X-coordinate {m}
+    20,                      !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    5,                       !- Vertex 4 X-coordinate {m}
+    20,                      !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_SouthSpace_Ceiling4_{00079},  !- Name
+    Ceiling,                 !- Surface Type
+    Default Ceiling Assembly_{00016},  !- Construction Name
+    Zone_Zone for space SouthSpace_SouthSpace_{00264},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_Ceiling_Floor30_{00124},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    40,                      !- Vertex 2 X-coordinate {m}
+    0,                       !- Vertex 2 Y-coordinate {m}
+    3.8,                     !- Vertex 2 Z-coordinate {m}
+    35,                      !- Vertex 3 X-coordinate {m}
+    5,                       !- Vertex 3 Y-coordinate {m}
+    3.8,                     !- Vertex 3 Z-coordinate {m}
+    5,                       !- Vertex 4 X-coordinate {m}
+    5,                       !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_SouthSpace_Floor5_{00080},  !- Name
+    Floor,                   !- Surface Type
+    Default Slab on Grade Floor Assembly_{00036},  !- Construction Name
+    Zone_Zone for space SouthSpace_SouthSpace_{00264},  !- Zone Name
+    Adiabatic,               !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    40,                      !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    0,                       !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    5,                       !- Vertex 3 X-coordinate {m}
+    5,                       !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    35,                      !- Vertex 4 X-coordinate {m}
+    5,                       !- Vertex 4 Y-coordinate {m}
+    0;                       !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_SouthSpace_Wall0_{00072},  !- Name
+    Wall,                    !- Surface Type
+    Default Ext Wall Assembly_{00021},  !- Construction Name
+    Zone_Zone for space SouthSpace_SouthSpace_{00264},  !- Zone Name
+    Outdoors,                !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    SunExposed,              !- Sun Exposure
+    WindExposed,             !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    0,                       !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    40,                      !- Vertex 3 X-coordinate {m}
+    0,                       !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    40,                      !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_SouthSpace_Wall1_{00076},  !- Name
+    Wall,                    !- Surface Type
+    Default Int Wall Assembly_{00025},  !- Construction Name
+    Zone_Zone for space SouthSpace_SouthSpace_{00264},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_WestSpace_Wall9_{00082},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    5,                       !- Vertex 1 X-coordinate {m}
+    5,                       !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    0,                       !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    0,                       !- Vertex 3 X-coordinate {m}
+    0,                       !- Vertex 3 Y-coordinate {m}
+    3.8,                     !- Vertex 3 Z-coordinate {m}
+    5,                       !- Vertex 4 X-coordinate {m}
+    5,                       !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_SouthSpace_Wall2_{00077},  !- Name
+    Wall,                    !- Surface Type
+    Default Int Wall Assembly_{00025} Reversed,  !- Construction Name
+    Zone_Zone for space SouthSpace_SouthSpace_{00264},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_CoreSpace_Wall24_{00112},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    35,                      !- Vertex 1 X-coordinate {m}
+    5,                       !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    5,                       !- Vertex 2 X-coordinate {m}
+    5,                       !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    5,                       !- Vertex 3 X-coordinate {m}
+    5,                       !- Vertex 3 Y-coordinate {m}
+    3.8,                     !- Vertex 3 Z-coordinate {m}
+    35,                      !- Vertex 4 X-coordinate {m}
+    5,                       !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_SouthSpace_Wall3_{00078},  !- Name
+    Wall,                    !- Surface Type
+    Default Int Wall Assembly_{00025} Reversed,  !- Construction Name
+    Zone_Zone for space SouthSpace_SouthSpace_{00264},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_EastSpace_Wall19_{00102},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    40,                      !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    35,                      !- Vertex 2 X-coordinate {m}
+    5,                       !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    35,                      !- Vertex 3 X-coordinate {m}
+    5,                       !- Vertex 3 Y-coordinate {m}
+    3.8,                     !- Vertex 3 Z-coordinate {m}
+    40,                      !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_WestSpace_Ceiling10_{00089},  !- Name
+    Ceiling,                 !- Surface Type
+    Default Ceiling Assembly_{00016},  !- Construction Name
+    Zone_Zone for space WestSpace_WestSpace_{00262},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_Ceiling_Floor31_{00125},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    25,                      !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    0,                       !- Vertex 2 Y-coordinate {m}
+    3.8,                     !- Vertex 2 Z-coordinate {m}
+    5,                       !- Vertex 3 X-coordinate {m}
+    5,                       !- Vertex 3 Y-coordinate {m}
+    3.8,                     !- Vertex 3 Z-coordinate {m}
+    5,                       !- Vertex 4 X-coordinate {m}
+    20,                      !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_WestSpace_Floor11_{00090},  !- Name
+    Floor,                   !- Surface Type
+    Default Slab on Grade Floor Assembly_{00036},  !- Construction Name
+    Zone_Zone for space WestSpace_WestSpace_{00262},  !- Zone Name
+    Adiabatic,               !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    25,                      !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    5,                       !- Vertex 3 X-coordinate {m}
+    20,                      !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    5,                       !- Vertex 4 X-coordinate {m}
+    5,                       !- Vertex 4 Y-coordinate {m}
+    0;                       !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_WestSpace_Wall6_{00083},  !- Name
+    Wall,                    !- Surface Type
+    Default Ext Wall Assembly_{00021},  !- Construction Name
+    Zone_Zone for space WestSpace_WestSpace_{00262},  !- Zone Name
+    Outdoors,                !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    SunExposed,              !- Sun Exposure
+    WindExposed,             !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    25,                      !- Vertex 1 Y-coordinate {m}
+    3.8,                     !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    25,                      !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    0,                       !- Vertex 3 X-coordinate {m}
+    0,                       !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    0,                       !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_WestSpace_Wall7_{00087},  !- Name
+    Wall,                    !- Surface Type
+    Default Int Wall Assembly_{00025} Reversed,  !- Construction Name
+    Zone_Zone for space WestSpace_WestSpace_{00262},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_NorthSpace_Wall15_{00093},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    5,                       !- Vertex 1 X-coordinate {m}
+    20,                      !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    25,                      !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    0,                       !- Vertex 3 X-coordinate {m}
+    25,                      !- Vertex 3 Y-coordinate {m}
+    3.8,                     !- Vertex 3 Z-coordinate {m}
+    5,                       !- Vertex 4 X-coordinate {m}
+    20,                      !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_WestSpace_Wall8_{00088},  !- Name
+    Wall,                    !- Surface Type
+    Default Int Wall Assembly_{00025} Reversed,  !- Construction Name
+    Zone_Zone for space WestSpace_WestSpace_{00262},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_CoreSpace_Wall25_{00113},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    5,                       !- Vertex 1 X-coordinate {m}
+    5,                       !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    5,                       !- Vertex 2 X-coordinate {m}
+    20,                      !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    5,                       !- Vertex 3 X-coordinate {m}
+    20,                      !- Vertex 3 Y-coordinate {m}
+    3.8,                     !- Vertex 3 Z-coordinate {m}
+    5,                       !- Vertex 4 X-coordinate {m}
+    5,                       !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    5-Zone building with ceiling space_WestSpace_Wall9_{00082},  !- Name
+    Wall,                    !- Surface Type
+    Default Int Wall Assembly_{00025} Reversed,  !- Construction Name
+    Zone_Zone for space WestSpace_WestSpace_{00262},  !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    5-Zone building with ceiling space_SouthSpace_Wall1_{00076},  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    5,                       !- Vertex 2 X-coordinate {m}
+    5,                       !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    5,                       !- Vertex 3 X-coordinate {m}
+    5,                       !- Vertex 3 Y-coordinate {m}
+    3.8,                     !- Vertex 3 Z-coordinate {m}
+    0,                       !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    3.8;                     !- Vertex 4 Z-coordinate {m}
+
+
+!-   ===========  ALL OBJECTS IN CLASS: FENESTRATIONSURFACE:DETAILED ===========
+
+FenestrationSurface:Detailed,
+    5-Zone building with ceiling space_EastSpace_Wall18_Door8_Glass_{00106},  !- Name
+    Window,                  !- Surface Type
+    Sample Door Assembly_Glass_{00038},  !- Construction Name
+    5-Zone building with ceiling space_EastSpace_Wall18_{00103},  !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    ,                        !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    ,                        !- Multiplier
+    ,                        !- Number of Vertices
+    40,                      !- Vertex 1 X-coordinate {m}
+    4,                       !- Vertex 1 Y-coordinate {m}
+    2,                       !- Vertex 1 Z-coordinate {m}
+    40,                      !- Vertex 2 X-coordinate {m}
+    4,                       !- Vertex 2 Y-coordinate {m}
+    1.2,                     !- Vertex 2 Z-coordinate {m}
+    40,                      !- Vertex 3 X-coordinate {m}
+    5.4,                     !- Vertex 3 Y-coordinate {m}
+    1.2,                     !- Vertex 3 Z-coordinate {m}
+    40,                      !- Vertex 4 X-coordinate {m}
+    5.4,                     !- Vertex 4 Y-coordinate {m}
+    2;                       !- Vertex 4 Z-coordinate {m}
+
+FenestrationSurface:Detailed,
+    5-Zone building with ceiling space_EastSpace_Wall18_Door8_Opaque_{00105},  !- Name
+    Door,                    !- Surface Type
+    Sample Door Assembly_Opaque_{00040},  !- Construction Name
+    5-Zone building with ceiling space_EastSpace_Wall18_{00103},  !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    ,                        !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    ,                        !- Multiplier
+    ,                        !- Number of Vertices
+    40,                      !- Vertex 1 X-coordinate {m}
+    4,                       !- Vertex 1 Y-coordinate {m}
+    1.2,                     !- Vertex 1 Z-coordinate {m}
+    40,                      !- Vertex 2 X-coordinate {m}
+    4,                       !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    40,                      !- Vertex 3 X-coordinate {m}
+    5.4,                     !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    40,                      !- Vertex 4 X-coordinate {m}
+    5.4,                     !- Vertex 4 Y-coordinate {m}
+    1.2;                     !- Vertex 4 Z-coordinate {m}
+
+FenestrationSurface:Detailed,
+    5-Zone building with ceiling space_EastSpace_Wall18_Window7_{00104},  !- Name
+    Window,                  !- Surface Type
+    Construction 1,          !- Construction Name
+    5-Zone building with ceiling space_EastSpace_Wall18_{00103},  !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    ,                        !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    ,                        !- Multiplier
+    ,                        !- Number of Vertices
+    40,                      !- Vertex 1 X-coordinate {m}
+    9,                       !- Vertex 1 Y-coordinate {m}
+    2.5,                     !- Vertex 1 Z-coordinate {m}
+    40,                      !- Vertex 2 X-coordinate {m}
+    9,                       !- Vertex 2 Y-coordinate {m}
+    1,                       !- Vertex 2 Z-coordinate {m}
+    40,                      !- Vertex 3 X-coordinate {m}
+    11,                      !- Vertex 3 Y-coordinate {m}
+    1,                       !- Vertex 3 Z-coordinate {m}
+    40,                      !- Vertex 4 X-coordinate {m}
+    11,                      !- Vertex 4 Y-coordinate {m}
+    2.5;                     !- Vertex 4 Z-coordinate {m}
+
+FenestrationSurface:Detailed,
+    5-Zone building with ceiling space_NorthSpace_Wall12_Door6_Glass_{00097},  !- Name
+    Window,                  !- Surface Type
+    Sample Door Assembly_Glass_{00038},  !- Construction Name
+    5-Zone building with ceiling space_NorthSpace_Wall12_{00094},  !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    ,                        !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    ,                        !- Multiplier
+    ,                        !- Number of Vertices
+    5.4,                     !- Vertex 1 X-coordinate {m}
+    25,                      !- Vertex 1 Y-coordinate {m}
+    2,                       !- Vertex 1 Z-coordinate {m}
+    5.4,                     !- Vertex 2 X-coordinate {m}
+    25,                      !- Vertex 2 Y-coordinate {m}
+    1.2,                     !- Vertex 2 Z-coordinate {m}
+    4,                       !- Vertex 3 X-coordinate {m}
+    25,                      !- Vertex 3 Y-coordinate {m}
+    1.2,                     !- Vertex 3 Z-coordinate {m}
+    4,                       !- Vertex 4 X-coordinate {m}
+    25,                      !- Vertex 4 Y-coordinate {m}
+    2;                       !- Vertex 4 Z-coordinate {m}
+
+FenestrationSurface:Detailed,
+    5-Zone building with ceiling space_NorthSpace_Wall12_Door6_Opaque_{00096},  !- Name
+    Door,                    !- Surface Type
+    Sample Door Assembly_Opaque_{00040},  !- Construction Name
+    5-Zone building with ceiling space_NorthSpace_Wall12_{00094},  !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    ,                        !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    ,                        !- Multiplier
+    ,                        !- Number of Vertices
+    5.4,                     !- Vertex 1 X-coordinate {m}
+    25,                      !- Vertex 1 Y-coordinate {m}
+    1.2,                     !- Vertex 1 Z-coordinate {m}
+    5.4,                     !- Vertex 2 X-coordinate {m}
+    25,                      !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    4,                       !- Vertex 3 X-coordinate {m}
+    25,                      !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    4,                       !- Vertex 4 X-coordinate {m}
+    25,                      !- Vertex 4 Y-coordinate {m}
+    1.2;                     !- Vertex 4 Z-coordinate {m}
+
+FenestrationSurface:Detailed,
+    5-Zone building with ceiling space_NorthSpace_Wall12_Window5_{00095},  !- Name
+    Window,                  !- Surface Type
+    Construction 1,          !- Construction Name
+    5-Zone building with ceiling space_NorthSpace_Wall12_{00094},  !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    ,                        !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    ,                        !- Multiplier
+    ,                        !- Number of Vertices
+    11,                      !- Vertex 1 X-coordinate {m}
+    25,                      !- Vertex 1 Y-coordinate {m}
+    2.5,                     !- Vertex 1 Z-coordinate {m}
+    11,                      !- Vertex 2 X-coordinate {m}
+    25,                      !- Vertex 2 Y-coordinate {m}
+    1,                       !- Vertex 2 Z-coordinate {m}
+    9,                       !- Vertex 3 X-coordinate {m}
+    25,                      !- Vertex 3 Y-coordinate {m}
+    1,                       !- Vertex 3 Z-coordinate {m}
+    9,                       !- Vertex 4 X-coordinate {m}
+    25,                      !- Vertex 4 Y-coordinate {m}
+    2.5;                     !- Vertex 4 Z-coordinate {m}
+
+FenestrationSurface:Detailed,
+    5-Zone building with ceiling space_SouthSpace_Wall0_Door2_Glass_{00075},  !- Name
+    Window,                  !- Surface Type
+    Sample Door Assembly_Glass_{00038},  !- Construction Name
+    5-Zone building with ceiling space_SouthSpace_Wall0_{00072},  !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    ,                        !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    ,                        !- Multiplier
+    ,                        !- Number of Vertices
+    15,                      !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    2,                       !- Vertex 1 Z-coordinate {m}
+    15,                      !- Vertex 2 X-coordinate {m}
+    0,                       !- Vertex 2 Y-coordinate {m}
+    1.2,                     !- Vertex 2 Z-coordinate {m}
+    16.4,                    !- Vertex 3 X-coordinate {m}
+    0,                       !- Vertex 3 Y-coordinate {m}
+    1.2,                     !- Vertex 3 Z-coordinate {m}
+    16.4,                    !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    2;                       !- Vertex 4 Z-coordinate {m}
+
+FenestrationSurface:Detailed,
+    5-Zone building with ceiling space_SouthSpace_Wall0_Door2_Opaque_{00074},  !- Name
+    Door,                    !- Surface Type
+    Sample Door Assembly_Opaque_{00040},  !- Construction Name
+    5-Zone building with ceiling space_SouthSpace_Wall0_{00072},  !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    ,                        !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    ,                        !- Multiplier
+    ,                        !- Number of Vertices
+    15,                      !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    1.2,                     !- Vertex 1 Z-coordinate {m}
+    15,                      !- Vertex 2 X-coordinate {m}
+    0,                       !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    16.4,                    !- Vertex 3 X-coordinate {m}
+    0,                       !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    16.4,                    !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    1.2;                     !- Vertex 4 Z-coordinate {m}
+
+FenestrationSurface:Detailed,
+    5-Zone building with ceiling space_SouthSpace_Wall0_Window1_{00073},  !- Name
+    Window,                  !- Surface Type
+    Construction 1,          !- Construction Name
+    5-Zone building with ceiling space_SouthSpace_Wall0_{00072},  !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    ,                        !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    ,                        !- Multiplier
+    ,                        !- Number of Vertices
+    9,                       !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    1,                       !- Vertex 1 Z-coordinate {m}
+    11,                      !- Vertex 2 X-coordinate {m}
+    0,                       !- Vertex 2 Y-coordinate {m}
+    1,                       !- Vertex 2 Z-coordinate {m}
+    11,                      !- Vertex 3 X-coordinate {m}
+    0,                       !- Vertex 3 Y-coordinate {m}
+    2.5,                     !- Vertex 3 Z-coordinate {m}
+    9,                       !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    2.5;                     !- Vertex 4 Z-coordinate {m}
+
+FenestrationSurface:Detailed,
+    5-Zone building with ceiling space_WestSpace_Wall6_Door4_Glass_{00086},  !- Name
+    Window,                  !- Surface Type
+    Sample Door Assembly_Glass_{00038},  !- Construction Name
+    5-Zone building with ceiling space_WestSpace_Wall6_{00083},  !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    ,                        !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    ,                        !- Multiplier
+    ,                        !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    21,                      !- Vertex 1 Y-coordinate {m}
+    2,                       !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    21,                      !- Vertex 2 Y-coordinate {m}
+    1.2,                     !- Vertex 2 Z-coordinate {m}
+    0,                       !- Vertex 3 X-coordinate {m}
+    19.6,                    !- Vertex 3 Y-coordinate {m}
+    1.2,                     !- Vertex 3 Z-coordinate {m}
+    0,                       !- Vertex 4 X-coordinate {m}
+    19.6,                    !- Vertex 4 Y-coordinate {m}
+    2;                       !- Vertex 4 Z-coordinate {m}
+
+FenestrationSurface:Detailed,
+    5-Zone building with ceiling space_WestSpace_Wall6_Door4_Opaque_{00085},  !- Name
+    Door,                    !- Surface Type
+    Sample Door Assembly_Opaque_{00040},  !- Construction Name
+    5-Zone building with ceiling space_WestSpace_Wall6_{00083},  !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    ,                        !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    ,                        !- Multiplier
+    ,                        !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    21,                      !- Vertex 1 Y-coordinate {m}
+    1.2,                     !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    21,                      !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    0,                       !- Vertex 3 X-coordinate {m}
+    19.6,                    !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    0,                       !- Vertex 4 X-coordinate {m}
+    19.6,                    !- Vertex 4 Y-coordinate {m}
+    1.2;                     !- Vertex 4 Z-coordinate {m}
+
+FenestrationSurface:Detailed,
+    5-Zone building with ceiling space_WestSpace_Wall6_Window3_{00084},  !- Name
+    Window,                  !- Surface Type
+    Construction 1,          !- Construction Name
+    5-Zone building with ceiling space_WestSpace_Wall6_{00083},  !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    ,                        !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    ,                        !- Multiplier
+    ,                        !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    16,                      !- Vertex 1 Y-coordinate {m}
+    2.5,                     !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    16,                      !- Vertex 2 Y-coordinate {m}
+    1,                       !- Vertex 2 Z-coordinate {m}
+    0,                       !- Vertex 3 X-coordinate {m}
+    14,                      !- Vertex 3 Y-coordinate {m}
+    1,                       !- Vertex 3 Z-coordinate {m}
+    0,                       !- Vertex 4 X-coordinate {m}
+    14,                      !- Vertex 4 Y-coordinate {m}
+    2.5;                     !- Vertex 4 Z-coordinate {m}
+
+
+!-   ===========  ALL OBJECTS IN CLASS: PEOPLE ===========
+
+People,
+    CoreSpace_People__{00194},  !- Name
+    Zone_Zone for space CoreSpace_CoreSpace_{00270},  !- Zone or ZoneList Name
+    90.1 Office Occupancy_Schedule15_{00065},  !- Number of People Schedule Name
+    Area/Person,             !- Number of People Calculation Method
+    ,                        !- Number of People
+    ,                        !- People per Zone Floor Area {person/m2}
+    17.999964,               !- Zone Floor Area per Person {m2/person}
+    0.7,                     !- Fraction Radiant
+    0.544444444444444,       !- Sensible Heat Fraction
+    Schedule_SchType_Constant_{00195},  !- Activity Level Schedule Name
+    4.298e-008;              !- Carbon Dioxide Generation Rate {m3/s-W}
+
+People,
+    EastSpace_People__{00183},  !- Name
+    Zone_Zone for space EastSpace_EastSpace_{00268},  !- Zone or ZoneList Name
+    90.1 Office Occupancy_Schedule15_{00065},  !- Number of People Schedule Name
+    Area/Person,             !- Number of People Calculation Method
+    ,                        !- Number of People
+    ,                        !- People per Zone Floor Area {person/m2}
+    17.999964,               !- Zone Floor Area per Person {m2/person}
+    0.7,                     !- Fraction Radiant
+    0.657142857765665,       !- Sensible Heat Fraction
+    Schedule_SchType_Constant_{00184},  !- Activity Level Schedule Name
+    4.298e-008;              !- Carbon Dioxide Generation Rate {m3/s-W}
+
+People,
+    NorthSpace_People__{00167},  !- Name
+    Zone_Zone for space NorthSpace_NorthSpace_{00266},  !- Zone or ZoneList Name
+    90.1 Office Occupancy_Schedule15_{00065},  !- Number of People Schedule Name
+    Area/Person,             !- Number of People Calculation Method
+    ,                        !- Number of People
+    ,                        !- People per Zone Floor Area {person/m2}
+    17.999964,               !- Zone Floor Area per Person {m2/person}
+    0.7,                     !- Fraction Radiant
+    0.544444444444444,       !- Sensible Heat Fraction
+    Schedule_SchType_Constant_{00168},  !- Activity Level Schedule Name
+    4.298e-008;              !- Carbon Dioxide Generation Rate {m3/s-W}
+
+People,
+    SouthSpace_People__{00135},  !- Name
+    Zone_Zone for space SouthSpace_SouthSpace_{00264},  !- Zone or ZoneList Name
+    90.1 Office Occupancy_Schedule15_{00065},  !- Number of People Schedule Name
+    Area/Person,             !- Number of People Calculation Method
+    ,                        !- Number of People
+    ,                        !- People per Zone Floor Area {person/m2}
+    17.999964,               !- Zone Floor Area per Person {m2/person}
+    0.7,                     !- Fraction Radiant
+    0.509090909090909,       !- Sensible Heat Fraction
+    Schedule_SchType_Constant_{00136},  !- Activity Level Schedule Name
+    4.298e-008;              !- Carbon Dioxide Generation Rate {m3/s-W}
+
+People,
+    WestSpace_People__{00151},  !- Name
+    Zone_Zone for space WestSpace_WestSpace_{00262},  !- Zone or ZoneList Name
+    90.1 Office Occupancy_Schedule15_{00065},  !- Number of People Schedule Name
+    Area/Person,             !- Number of People Calculation Method
+    ,                        !- Number of People
+    ,                        !- People per Zone Floor Area {person/m2}
+    17.999964,               !- Zone Floor Area per Person {m2/person}
+    0.7,                     !- Fraction Radiant
+    0.393333333333333,       !- Sensible Heat Fraction
+    Schedule_SchType_Constant_{00152},  !- Activity Level Schedule Name
+    4.298e-008;              !- Carbon Dioxide Generation Rate {m3/s-W}
+
+
+!-   ===========  ALL OBJECTS IN CLASS: LIGHTS ===========
+
+Lights,
+    EastSpace_OHLight__{00179},  !- Name
+    Zone_Zone for space EastSpace_EastSpace_{00268},  !- Zone or ZoneList Name
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Schedule Name
+    LightingLevel,           !- Design Level Calculation Method
+    674.251398391884,        !- Lighting Level {W}
+    ,                        !- Watts per Zone Floor Area {W/m2}
+    ,                        !- Watts per Person {W/person}
+    0.458,                   !- Return Air Fraction
+    0.264,                   !- Fraction Radiant
+    0.278,                   !- Fraction Visible
+    0,                       !- Fraction Replaceable
+    General;                 !- End-Use Subcategory
+
+Lights,
+    EastSpace_TaskLight__{00181},  !- Name
+    Zone_Zone for space EastSpace_EastSpace_{00268},  !- Zone or ZoneList Name
+    90.1 Office Occupancy_Schedule15_{00065},  !- Schedule Name
+    Watts/Area,              !- Design Level Calculation Method
+    ,                        !- Lighting Level {W}
+    2.04514287433684,        !- Watts per Zone Floor Area {W/m2}
+    ,                        !- Watts per Person {W/person}
+    0,                       !- Return Air Fraction
+    0.32,                    !- Fraction Radiant
+    0.24,                    !- Fraction Visible
+    0,                       !- Fraction Replaceable
+    General;                 !- End-Use Subcategory
+
+Lights,
+    NorthSpace_OHLight__{00163},  !- Name
+    Zone_Zone for space NorthSpace_NorthSpace_{00266},  !- Zone or ZoneList Name
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Schedule Name
+    LightingLevel,           !- Design Level Calculation Method
+    508.933823981383,        !- Lighting Level {W}
+    ,                        !- Watts per Zone Floor Area {W/m2}
+    ,                        !- Watts per Person {W/person}
+    0,                       !- Return Air Fraction
+    0.197,                   !- Fraction Radiant
+    0.573,                   !- Fraction Visible
+    0,                       !- Fraction Replaceable
+    General;                 !- End-Use Subcategory
+
+Lights,
+    NorthSpace_TaskLight__{00165},  !- Name
+    Zone_Zone for space NorthSpace_NorthSpace_{00266},  !- Zone or ZoneList Name
+    90.1 Office Occupancy_Schedule15_{00065},  !- Schedule Name
+    Watts/Area,              !- Design Level Calculation Method
+    ,                        !- Lighting Level {W}
+    2.04514287433684,        !- Watts per Zone Floor Area {W/m2}
+    ,                        !- Watts per Person {W/person}
+    0,                       !- Return Air Fraction
+    0.32,                    !- Fraction Radiant
+    0.24,                    !- Fraction Visible
+    0,                       !- Fraction Replaceable
+    General;                 !- End-Use Subcategory
+
+Lights,
+    SouthSpace_OHLight__{00131},  !- Name
+    Zone_Zone for space SouthSpace_SouthSpace_{00264},  !- Zone or ZoneList Name
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Schedule Name
+    LightingLevel,           !- Design Level Calculation Method
+    921.686697350194,        !- Lighting Level {W}
+    ,                        !- Watts per Zone Floor Area {W/m2}
+    ,                        !- Watts per Person {W/person}
+    0,                       !- Return Air Fraction
+    0.01,                    !- Fraction Radiant
+    0.331,                   !- Fraction Visible
+    0,                       !- Fraction Replaceable
+    General;                 !- End-Use Subcategory
+
+Lights,
+    SouthSpace_TaskLight__{00133},  !- Name
+    Zone_Zone for space SouthSpace_SouthSpace_{00264},  !- Zone or ZoneList Name
+    90.1 Office Occupancy_Schedule15_{00065},  !- Schedule Name
+    Watts/Area,              !- Design Level Calculation Method
+    ,                        !- Lighting Level {W}
+    2.04514287433684,        !- Watts per Zone Floor Area {W/m2}
+    ,                        !- Watts per Person {W/person}
+    0,                       !- Return Air Fraction
+    0.32,                    !- Fraction Radiant
+    0.24,                    !- Fraction Visible
+    0,                       !- Fraction Replaceable
+    General;                 !- End-Use Subcategory
+
+Lights,
+    WestSpace_OHLight__{00147},  !- Name
+    Zone_Zone for space WestSpace_WestSpace_{00262},  !- Zone or ZoneList Name
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Schedule Name
+    LightingLevel,           !- Design Level Calculation Method
+    960.679050885035,        !- Lighting Level {W}
+    ,                        !- Watts per Zone Floor Area {W/m2}
+    ,                        !- Watts per Person {W/person}
+    0,                       !- Return Air Fraction
+    0.12,                    !- Fraction Radiant
+    0.873,                   !- Fraction Visible
+    0,                       !- Fraction Replaceable
+    General;                 !- End-Use Subcategory
+
+Lights,
+    WestSpace_TaskLight__{00149},  !- Name
+    Zone_Zone for space WestSpace_WestSpace_{00262},  !- Zone or ZoneList Name
+    90.1 Office Occupancy_Schedule15_{00065},  !- Schedule Name
+    Watts/Area,              !- Design Level Calculation Method
+    ,                        !- Lighting Level {W}
+    2.04514287433684,        !- Watts per Zone Floor Area {W/m2}
+    ,                        !- Watts per Person {W/person}
+    0,                       !- Return Air Fraction
+    0.32,                    !- Fraction Radiant
+    0.24,                    !- Fraction Visible
+    0,                       !- Fraction Replaceable
+    General;                 !- End-Use Subcategory
+
+
+!-   ===========  ALL OBJECTS IN CLASS: ELECTRICEQUIPMENT ===========
+
+ElectricEquipment,
+    Ceiling_LightHeatGainFrom_EastSpace_{00178},  !- Name
+    ThermalZone_Ceiling_{00272},  !- Zone or ZoneList Name
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    262.2088771524,          !- Design Level {W}
+    ,                        !- Watts per Zone Floor Area {W/m2}
+    ,                        !- Watts per Person {W/person}
+    0,                       !- Fraction Latent
+    0,                       !- Fraction Radiant
+    ,                        !- Fraction Lost
+    General;                 !- End-Use Subcategory
+
+ElectricEquipment,
+    Ceiling_LightHeatGainFrom_NorthSpace_{00162},  !- Name
+    ThermalZone_Ceiling_{00272},  !- Zone or ZoneList Name
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    564.766226612252,        !- Design Level {W}
+    ,                        !- Watts per Zone Floor Area {W/m2}
+    ,                        !- Watts per Person {W/person}
+    0,                       !- Fraction Latent
+    0,                       !- Fraction Radiant
+    ,                        !- Fraction Lost
+    General;                 !- End-Use Subcategory
+
+ElectricEquipment,
+    Ceiling_LightHeatGainFrom_SouthSpace_{00130},  !- Name
+    ThermalZone_Ceiling_{00272},  !- Zone or ZoneList Name
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    1056.18175189915,        !- Design Level {W}
+    ,                        !- Watts per Zone Floor Area {W/m2}
+    ,                        !- Watts per Person {W/person}
+    0,                       !- Fraction Latent
+    0,                       !- Fraction Radiant
+    ,                        !- Fraction Lost
+    General;                 !- End-Use Subcategory
+
+ElectricEquipment,
+    Ceiling_LightHeatGainFrom_WestSpace_{00146},  !- Name
+    ThermalZone_Ceiling_{00272},  !- Zone or ZoneList Name
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    320.226350295012,        !- Design Level {W}
+    ,                        !- Watts per Zone Floor Area {W/m2}
+    ,                        !- Watts per Person {W/person}
+    0,                       !- Fraction Latent
+    0,                       !- Fraction Radiant
+    ,                        !- Fraction Lost
+    General;                 !- End-Use Subcategory
+
+ElectricEquipment,
+    EastSpace_ElectricEqpt_{00186},  !- Name
+    Zone_Zone for space EastSpace_EastSpace_{00268},  !- Zone or ZoneList Name
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Schedule Name
+    Watts/Area,              !- Design Level Calculation Method
+    ,                        !- Design Level {W}
+    4.95139868982106,        !- Watts per Zone Floor Area {W/m2}
+    ,                        !- Watts per Person {W/person}
+    0,                       !- Fraction Latent
+    0.25,                    !- Fraction Radiant
+    0,                       !- Fraction Lost
+    General;                 !- End-Use Subcategory
+
+ElectricEquipment,
+    NorthSpace_ElectricEqpt_{00170},  !- Name
+    Zone_Zone for space NorthSpace_NorthSpace_{00266},  !- Zone or ZoneList Name
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Schedule Name
+    Watts/Area,              !- Design Level Calculation Method
+    ,                        !- Design Level {W}
+    4.95139868982106,        !- Watts per Zone Floor Area {W/m2}
+    ,                        !- Watts per Person {W/person}
+    0,                       !- Fraction Latent
+    0.25,                    !- Fraction Radiant
+    0,                       !- Fraction Lost
+    General;                 !- End-Use Subcategory
+
+ElectricEquipment,
+    SouthSpace_ElectricEqpt_{00138},  !- Name
+    Zone_Zone for space SouthSpace_SouthSpace_{00264},  !- Zone or ZoneList Name
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Schedule Name
+    Watts/Area,              !- Design Level Calculation Method
+    ,                        !- Design Level {W}
+    4.95139868982106,        !- Watts per Zone Floor Area {W/m2}
+    ,                        !- Watts per Person {W/person}
+    0,                       !- Fraction Latent
+    0.25,                    !- Fraction Radiant
+    0,                       !- Fraction Lost
+    General;                 !- End-Use Subcategory
+
+ElectricEquipment,
+    WestSpace_ElectricEqpt_{00154},  !- Name
+    Zone_Zone for space WestSpace_WestSpace_{00262},  !- Zone or ZoneList Name
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Schedule Name
+    Watts/Area,              !- Design Level Calculation Method
+    ,                        !- Design Level {W}
+    4.95139868982106,        !- Watts per Zone Floor Area {W/m2}
+    ,                        !- Watts per Person {W/person}
+    0,                       !- Fraction Latent
+    0.25,                    !- Fraction Radiant
+    0,                       !- Fraction Lost
+    General;                 !- End-Use Subcategory
+
+
+!-   ===========  ALL OBJECTS IN CLASS: OTHEREQUIPMENT ===========
+
+OtherEquipment,
+    CoreSpace_MiscLatengHG_{00199},  !- Name
+    None,                    !- Fuel Type
+    Zone_Zone for space CoreSpace_CoreSpace_{00270},  !- Zone or ZoneList Name
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    800.084103,              !- Design Level {W}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/person}
+    1,                       !- Fraction Latent
+    0,                       !- Fraction Radiant
+    0,                       !- Fraction Lost
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    General;                 !- End-Use Subcategory
+
+OtherEquipment,
+    CoreSpace_MiscSensHG-{00197},  !- Name
+    None,                    !- Fuel Type
+    Zone_Zone for space CoreSpace_CoreSpace_{00270},  !- Zone or ZoneList Name
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    1999.9171864,            !- Design Level {W}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/person}
+    0,                       !- Fraction Latent
+    0.25,                    !- Fraction Radiant
+    0,                       !- Fraction Lost
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    General;                 !- End-Use Subcategory
+
+OtherEquipment,
+    EastSpace_MiscLatengHG_{00190},  !- Name
+    None,                    !- Fuel Type
+    Zone_Zone for space EastSpace_EastSpace_{00268},  !- Zone or ZoneList Name
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    1099.8958383,            !- Design Level {W}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/person}
+    1,                       !- Fraction Latent
+    0,                       !- Fraction Radiant
+    0,                       !- Fraction Lost
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    General;                 !- End-Use Subcategory
+
+OtherEquipment,
+    EastSpace_MiscSensHG-{00188},  !- Name
+    None,                    !- Fuel Type
+    Zone_Zone for space EastSpace_EastSpace_{00268},  !- Zone or ZoneList Name
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    599.916577475281,        !- Design Level {W}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/person}
+    0,                       !- Fraction Latent
+    0.25,                    !- Fraction Radiant
+    0,                       !- Fraction Lost
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    General;                 !- End-Use Subcategory
+
+OtherEquipment,
+    NorthSpace_MiscLatengHG_{00174},  !- Name
+    None,                    !- Fuel Type
+    Zone_Zone for space NorthSpace_NorthSpace_{00266},  !- Zone or ZoneList Name
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    499.9792966,             !- Design Level {W}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/person}
+    1,                       !- Fraction Latent
+    0,                       !- Fraction Radiant
+    0,                       !- Fraction Lost
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    General;                 !- End-Use Subcategory
+
+OtherEquipment,
+    NorthSpace_MiscSensHG-{00172},  !- Name
+    None,                    !- Fuel Type
+    Zone_Zone for space NorthSpace_NorthSpace_{00266},  !- Zone or ZoneList Name
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    800.084103,              !- Design Level {W}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/person}
+    0,                       !- Fraction Latent
+    0.25,                    !- Fraction Radiant
+    0,                       !- Fraction Lost
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    General;                 !- End-Use Subcategory
+
+OtherEquipment,
+    SouthSpace_MiscLatengHG_{00142},  !- Name
+    None,                    !- Fuel Type
+    Zone_Zone for space SouthSpace_SouthSpace_{00264},  !- Zone or ZoneList Name
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    900.0213481,             !- Design Level {W}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/person}
+    1,                       !- Fraction Latent
+    0,                       !- Fraction Radiant
+    0,                       !- Fraction Lost
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    General;                 !- End-Use Subcategory
+
+OtherEquipment,
+    SouthSpace_MiscSensHG-{00140},  !- Name
+    None,                    !- Fuel Type
+    Zone_Zone for space SouthSpace_SouthSpace_{00264},  !- Zone or ZoneList Name
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    999.9585932,             !- Design Level {W}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/person}
+    0,                       !- Fraction Latent
+    0.25,                    !- Fraction Radiant
+    0,                       !- Fraction Lost
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    General;                 !- End-Use Subcategory
+
+OtherEquipment,
+    WestSpace_MiscLatengHG_{00158},  !- Name
+    None,                    !- Fuel Type
+    Zone_Zone for space WestSpace_WestSpace_{00262},  !- Zone or ZoneList Name
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    1300.0633996,            !- Design Level {W}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/person}
+    1,                       !- Fraction Latent
+    0,                       !- Fraction Radiant
+    0,                       !- Fraction Lost
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    General;                 !- End-Use Subcategory
+
+OtherEquipment,
+    WestSpace_MiscSensHG-{00156},  !- Name
+    None,                    !- Fuel Type
+    Zone_Zone for space WestSpace_WestSpace_{00262},  !- Zone or ZoneList Name
+    90.1 Office Lights/Elec_Schedule14_{00059},  !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    1200.12608294944,        !- Design Level {W}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/person}
+    0,                       !- Fraction Latent
+    0.25,                    !- Fraction Radiant
+    0,                       !- Fraction Lost
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    General;                 !- End-Use Subcategory
+
+
+!-   ===========  ALL OBJECTS IN CLASS: ZONEINFILTRATION:DESIGNFLOWRATE ===========
+
+ZoneInfiltration:DesignFlowRate,
+    EastSpace_Infiltration_{00192},  !- Name
+    Zone_Zone for space EastSpace_EastSpace_{00268},  !- Zone or ZoneList Name
+    Schedule_SpaceInfiltration_EastSpace{00191},  !- Schedule Name
+    AirChanges/Hour,         !- Design Flow Rate Calculation Method
+    ,                        !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    1.20000004768372,        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    NorthSpace_Infiltration_{00176},  !- Name
+    Zone_Zone for space NorthSpace_NorthSpace_{00266},  !- Zone or ZoneList Name
+    Schedule_SpaceInfiltration_NorthSpace{00175},  !- Schedule Name
+    AirChanges/Hour,         !- Design Flow Rate Calculation Method
+    ,                        !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    1.20000004768372,        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    SouthSpace_Infiltration_{00144},  !- Name
+    Zone_Zone for space SouthSpace_SouthSpace_{00264},  !- Zone or ZoneList Name
+    Schedule_SpaceInfiltration_SouthSpace{00143},  !- Schedule Name
+    AirChanges/Hour,         !- Design Flow Rate Calculation Method
+    ,                        !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    1.20000004768372,        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    WestSpace_Infiltration_{00160},  !- Name
+    Zone_Zone for space WestSpace_WestSpace_{00262},  !- Zone or ZoneList Name
+    Schedule_SpaceInfiltration_WestSpace{00159},  !- Schedule Name
+    AirChanges/Hour,         !- Design Flow Rate Calculation Method
+    ,                        !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    1.20000004768372,        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+
+!-   ===========  ALL OBJECTS IN CLASS: DESIGNSPECIFICATION:ZONEAIRDISTRIBUTION ===========
+
+DesignSpecification:ZoneAirDistribution,
+    Zone_Zone for space CoreSpace_CoreSpace_{00270} Design Spec Zone Air Dist,  !- Name
+    1,                       !- Zone Air Distribution Effectiveness in Cooling Mode {dimensionless}
+    1;                       !- Zone Air Distribution Effectiveness in Heating Mode {dimensionless}
+
+DesignSpecification:ZoneAirDistribution,
+    Zone_Zone for space EastSpace_EastSpace_{00268} Design Spec Zone Air Dist,  !- Name
+    1,                       !- Zone Air Distribution Effectiveness in Cooling Mode {dimensionless}
+    1;                       !- Zone Air Distribution Effectiveness in Heating Mode {dimensionless}
+
+DesignSpecification:ZoneAirDistribution,
+    Zone_Zone for space NorthSpace_NorthSpace_{00266} Design Spec Zone Air Dist,  !- Name
+    1,                       !- Zone Air Distribution Effectiveness in Cooling Mode {dimensionless}
+    1;                       !- Zone Air Distribution Effectiveness in Heating Mode {dimensionless}
+
+DesignSpecification:ZoneAirDistribution,
+    Zone_Zone for space SouthSpace_SouthSpace_{00264} Design Spec Zone Air Dist,  !- Name
+    1,                       !- Zone Air Distribution Effectiveness in Cooling Mode {dimensionless}
+    1;                       !- Zone Air Distribution Effectiveness in Heating Mode {dimensionless}
+
+DesignSpecification:ZoneAirDistribution,
+    Zone_Zone for space WestSpace_WestSpace_{00262} Design Spec Zone Air Dist,  !- Name
+    1,                       !- Zone Air Distribution Effectiveness in Cooling Mode {dimensionless}
+    1;                       !- Zone Air Distribution Effectiveness in Heating Mode {dimensionless}
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SIZING:PARAMETERS ===========
+
+Sizing:Parameters,
+    1.25,                    !- Heating Sizing Factor
+    1.15;                    !- Cooling Sizing Factor
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SIZING:ZONE ===========
+
+Sizing:Zone,
+    Zone_Zone for space CoreSpace_CoreSpace_{00270},  !- Zone or ZoneList Name
+    SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
+    14,                      !- Zone Cooling Design Supply Air Temperature {C}
+    11.11,                   !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
+    SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
+    40,                      !- Zone Heating Design Supply Air Temperature {C}
+    11.11,                   !- Zone Heating Design Supply Air Temperature Difference {deltaC}
+    0.0085,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.008,                   !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Design Specification Outdoor Air Object Name
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
+    DesignDay,               !- Cooling Design Air Flow Method
+    0,                       !- Cooling Design Air Flow Rate {m3/s}
+    0.000762,                !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
+    0,                       !- Cooling Minimum Air Flow {m3/s}
+    0,                       !- Cooling Minimum Air Flow Fraction
+    DesignDay,               !- Heating Design Air Flow Method
+    0,                       !- Heating Design Air Flow Rate {m3/s}
+    0.002032,                !- Heating Maximum Air Flow per Zone Floor Area {m3/s-m2}
+    0.1415762,               !- Heating Maximum Air Flow {m3/s}
+    0.3,                     !- Heating Maximum Air Flow Fraction
+    Zone_Zone for space CoreSpace_CoreSpace_{00270} Design Spec Zone Air Dist,  !- Design Specification Zone Air Distribution Object Name
+    No;                      !- Account for Dedicated Outdoor Air System
+
+Sizing:Zone,
+    Zone_Zone for space EastSpace_EastSpace_{00268},  !- Zone or ZoneList Name
+    SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
+    14,                      !- Zone Cooling Design Supply Air Temperature {C}
+    11.11,                   !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
+    SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
+    40,                      !- Zone Heating Design Supply Air Temperature {C}
+    11.11,                   !- Zone Heating Design Supply Air Temperature Difference {deltaC}
+    0.0085,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.008,                   !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Design Specification Outdoor Air Object Name
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
+    DesignDay,               !- Cooling Design Air Flow Method
+    0,                       !- Cooling Design Air Flow Rate {m3/s}
+    0.000762,                !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
+    0,                       !- Cooling Minimum Air Flow {m3/s}
+    0,                       !- Cooling Minimum Air Flow Fraction
+    DesignDay,               !- Heating Design Air Flow Method
+    0,                       !- Heating Design Air Flow Rate {m3/s}
+    0.002032,                !- Heating Maximum Air Flow per Zone Floor Area {m3/s-m2}
+    0.1415762,               !- Heating Maximum Air Flow {m3/s}
+    0.3,                     !- Heating Maximum Air Flow Fraction
+    Zone_Zone for space EastSpace_EastSpace_{00268} Design Spec Zone Air Dist,  !- Design Specification Zone Air Distribution Object Name
+    No;                      !- Account for Dedicated Outdoor Air System
+
+Sizing:Zone,
+    Zone_Zone for space NorthSpace_NorthSpace_{00266},  !- Zone or ZoneList Name
+    SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
+    14,                      !- Zone Cooling Design Supply Air Temperature {C}
+    11.11,                   !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
+    SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
+    40,                      !- Zone Heating Design Supply Air Temperature {C}
+    11.11,                   !- Zone Heating Design Supply Air Temperature Difference {deltaC}
+    0.0085,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.008,                   !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Design Specification Outdoor Air Object Name
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
+    DesignDay,               !- Cooling Design Air Flow Method
+    0,                       !- Cooling Design Air Flow Rate {m3/s}
+    0.000762,                !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
+    0,                       !- Cooling Minimum Air Flow {m3/s}
+    0,                       !- Cooling Minimum Air Flow Fraction
+    DesignDay,               !- Heating Design Air Flow Method
+    0,                       !- Heating Design Air Flow Rate {m3/s}
+    0.002032,                !- Heating Maximum Air Flow per Zone Floor Area {m3/s-m2}
+    0.1415762,               !- Heating Maximum Air Flow {m3/s}
+    0.3,                     !- Heating Maximum Air Flow Fraction
+    Zone_Zone for space NorthSpace_NorthSpace_{00266} Design Spec Zone Air Dist,  !- Design Specification Zone Air Distribution Object Name
+    No;                      !- Account for Dedicated Outdoor Air System
+
+Sizing:Zone,
+    Zone_Zone for space SouthSpace_SouthSpace_{00264},  !- Zone or ZoneList Name
+    SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
+    14,                      !- Zone Cooling Design Supply Air Temperature {C}
+    11.11,                   !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
+    SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
+    40,                      !- Zone Heating Design Supply Air Temperature {C}
+    11.11,                   !- Zone Heating Design Supply Air Temperature Difference {deltaC}
+    0.0085,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.008,                   !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Design Specification Outdoor Air Object Name
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
+    DesignDay,               !- Cooling Design Air Flow Method
+    0,                       !- Cooling Design Air Flow Rate {m3/s}
+    0.000762,                !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
+    0,                       !- Cooling Minimum Air Flow {m3/s}
+    0,                       !- Cooling Minimum Air Flow Fraction
+    DesignDay,               !- Heating Design Air Flow Method
+    0,                       !- Heating Design Air Flow Rate {m3/s}
+    0.002032,                !- Heating Maximum Air Flow per Zone Floor Area {m3/s-m2}
+    0.1415762,               !- Heating Maximum Air Flow {m3/s}
+    0.3,                     !- Heating Maximum Air Flow Fraction
+    Zone_Zone for space SouthSpace_SouthSpace_{00264} Design Spec Zone Air Dist,  !- Design Specification Zone Air Distribution Object Name
+    No;                      !- Account for Dedicated Outdoor Air System
+
+Sizing:Zone,
+    Zone_Zone for space WestSpace_WestSpace_{00262},  !- Zone or ZoneList Name
+    SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
+    14,                      !- Zone Cooling Design Supply Air Temperature {C}
+    11.11,                   !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
+    SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
+    40,                      !- Zone Heating Design Supply Air Temperature {C}
+    11.11,                   !- Zone Heating Design Supply Air Temperature Difference {deltaC}
+    0.0085,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.008,                   !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Design Specification Outdoor Air Object Name
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
+    DesignDay,               !- Cooling Design Air Flow Method
+    0,                       !- Cooling Design Air Flow Rate {m3/s}
+    0.000762,                !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
+    0,                       !- Cooling Minimum Air Flow {m3/s}
+    0,                       !- Cooling Minimum Air Flow Fraction
+    DesignDay,               !- Heating Design Air Flow Method
+    0,                       !- Heating Design Air Flow Rate {m3/s}
+    0.002032,                !- Heating Maximum Air Flow per Zone Floor Area {m3/s-m2}
+    0.1415762,               !- Heating Maximum Air Flow {m3/s}
+    0.3,                     !- Heating Maximum Air Flow Fraction
+    Zone_Zone for space WestSpace_WestSpace_{00262} Design Spec Zone Air Dist,  !- Design Specification Zone Air Distribution Object Name
+    No;                      !- Account for Dedicated Outdoor Air System
+
+
+!-   ===========  ALL OBJECTS IN CLASS: ZONECONTROL:THERMOSTAT ===========
+
+ZoneControl:Thermostat,
+    Zone_Zone for space CoreSpace_CoreSpace_{00270} Thermostat,  !- Name
+    Zone_Zone for space CoreSpace_CoreSpace_{00270},  !- Zone or ZoneList Name
+    Zone_Zone for space CoreSpace_CoreSpace_{00270} Thermostat Schedule,  !- Control Type Schedule Name
+    ThermostatSetpoint:DualSetpoint,  !- Control 1 Object Type
+    VRF10_Tstat_{00042} 4;   !- Control 1 Name
+
+ZoneControl:Thermostat,
+    Zone_Zone for space EastSpace_EastSpace_{00268} Thermostat,  !- Name
+    Zone_Zone for space EastSpace_EastSpace_{00268},  !- Zone or ZoneList Name
+    Zone_Zone for space EastSpace_EastSpace_{00268} Thermostat Schedule,  !- Control Type Schedule Name
+    ThermostatSetpoint:DualSetpoint,  !- Control 1 Object Type
+    VRF10_Tstat_{00042} 3;   !- Control 1 Name
+
+ZoneControl:Thermostat,
+    Zone_Zone for space NorthSpace_NorthSpace_{00266} Thermostat,  !- Name
+    Zone_Zone for space NorthSpace_NorthSpace_{00266},  !- Zone or ZoneList Name
+    Zone_Zone for space NorthSpace_NorthSpace_{00266} Thermostat Schedule,  !- Control Type Schedule Name
+    ThermostatSetpoint:DualSetpoint,  !- Control 1 Object Type
+    VRF10_Tstat_{00042} 2;   !- Control 1 Name
+
+ZoneControl:Thermostat,
+    Zone_Zone for space SouthSpace_SouthSpace_{00264} Thermostat,  !- Name
+    Zone_Zone for space SouthSpace_SouthSpace_{00264},  !- Zone or ZoneList Name
+    Zone_Zone for space SouthSpace_SouthSpace_{00264} Thermostat Schedule,  !- Control Type Schedule Name
+    ThermostatSetpoint:DualSetpoint,  !- Control 1 Object Type
+    VRF10_Tstat_{00042} 1;   !- Control 1 Name
+
+ZoneControl:Thermostat,
+    Zone_Zone for space WestSpace_WestSpace_{00262} Thermostat,  !- Name
+    Zone_Zone for space WestSpace_WestSpace_{00262},  !- Zone or ZoneList Name
+    Zone_Zone for space WestSpace_WestSpace_{00262} Thermostat Schedule,  !- Control Type Schedule Name
+    ThermostatSetpoint:DualSetpoint,  !- Control 1 Object Type
+    VRF10_Tstat_{00042};     !- Control 1 Name
+
+
+!-   ===========  ALL OBJECTS IN CLASS: THERMOSTATSETPOINT:DUALSETPOINT ===========
+
+ThermostatSetpoint:DualSetpoint,
+    VRF10_Tstat_{00042} 4,   !- Name
+    90.1 Office HVAC_HtgSp_{00051},  !- Heating Setpoint Temperature Schedule Name
+    90.1 Office HVAC_ClgSp_{00043};  !- Cooling Setpoint Temperature Schedule Name
+
+ThermostatSetpoint:DualSetpoint,
+    VRF10_Tstat_{00042} 3,   !- Name
+    90.1 Office HVAC_HtgSp_{00051},  !- Heating Setpoint Temperature Schedule Name
+    90.1 Office HVAC_ClgSp_{00043};  !- Cooling Setpoint Temperature Schedule Name
+
+ThermostatSetpoint:DualSetpoint,
+    VRF10_Tstat_{00042} 2,   !- Name
+    90.1 Office HVAC_HtgSp_{00051},  !- Heating Setpoint Temperature Schedule Name
+    90.1 Office HVAC_ClgSp_{00043};  !- Cooling Setpoint Temperature Schedule Name
+
+ThermostatSetpoint:DualSetpoint,
+    VRF10_Tstat_{00042} 1,   !- Name
+    90.1 Office HVAC_HtgSp_{00051},  !- Heating Setpoint Temperature Schedule Name
+    90.1 Office HVAC_ClgSp_{00043};  !- Cooling Setpoint Temperature Schedule Name
+
+ThermostatSetpoint:DualSetpoint,
+    VRF10_Tstat_{00042},     !- Name
+    90.1 Office HVAC_HtgSp_{00051},  !- Heating Setpoint Temperature Schedule Name
+    90.1 Office HVAC_ClgSp_{00043};  !- Cooling Setpoint Temperature Schedule Name
+
+
+!-   ===========  ALL OBJECTS IN CLASS: ZONEHVAC:IDEALLOADSAIRSYSTEM ===========
+
+ZoneHVAC:IdealLoadsAirSystem,
+    Zone_Zone for space CoreSpace_CoreSpace_{00270}_IdealAir_{00271},  !- Name
+    ,                        !- Availability Schedule Name
+    Node 15,                 !- Zone Supply Air Node Name
+    Node 14,                 !- Zone Exhaust Air Node Name
+    ,                        !- System Inlet Air Node Name
+    35,                      !- Maximum Heating Supply Air Temperature {C}
+    14.4444444444444,        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Heating Limit
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    NoLimit,                 !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
+    ,                        !- Heating Availability Schedule Name
+    ,                        !- Cooling Availability Schedule Name
+    None,                    !- Dehumidification Control Type
+    ,                        !- Cooling Sensible Heat Ratio {dimensionless}
+    ,                        !- Humidification Control Type
+    ,                        !- Design Specification Outdoor Air Object Name
+    ,                        !- Outdoor Air Inlet Node Name
+    ,                        !- Demand Controlled Ventilation Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
+    ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
+    ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
+
+ZoneHVAC:IdealLoadsAirSystem,
+    Zone_Zone for space EastSpace_EastSpace_{00268}_IdealAir_{00269},  !- Name
+    ,                        !- Availability Schedule Name
+    Node 12,                 !- Zone Supply Air Node Name
+    Node 11,                 !- Zone Exhaust Air Node Name
+    ,                        !- System Inlet Air Node Name
+    35,                      !- Maximum Heating Supply Air Temperature {C}
+    14.4444444444444,        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Heating Limit
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    NoLimit,                 !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
+    ,                        !- Heating Availability Schedule Name
+    ,                        !- Cooling Availability Schedule Name
+    None,                    !- Dehumidification Control Type
+    ,                        !- Cooling Sensible Heat Ratio {dimensionless}
+    ,                        !- Humidification Control Type
+    ,                        !- Design Specification Outdoor Air Object Name
+    ,                        !- Outdoor Air Inlet Node Name
+    ,                        !- Demand Controlled Ventilation Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
+    ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
+    ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
+
+ZoneHVAC:IdealLoadsAirSystem,
+    Zone_Zone for space NorthSpace_NorthSpace_{00266}_IdealAir_{00267},  !- Name
+    ,                        !- Availability Schedule Name
+    Node 9,                  !- Zone Supply Air Node Name
+    Node 8,                  !- Zone Exhaust Air Node Name
+    ,                        !- System Inlet Air Node Name
+    35,                      !- Maximum Heating Supply Air Temperature {C}
+    14.4444444444444,        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Heating Limit
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    NoLimit,                 !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
+    ,                        !- Heating Availability Schedule Name
+    ,                        !- Cooling Availability Schedule Name
+    None,                    !- Dehumidification Control Type
+    ,                        !- Cooling Sensible Heat Ratio {dimensionless}
+    ,                        !- Humidification Control Type
+    ,                        !- Design Specification Outdoor Air Object Name
+    ,                        !- Outdoor Air Inlet Node Name
+    ,                        !- Demand Controlled Ventilation Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
+    ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
+    ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
+
+ZoneHVAC:IdealLoadsAirSystem,
+    Zone_Zone for space SouthSpace_SouthSpace_{00264}_IdealAir_{00265},  !- Name
+    ,                        !- Availability Schedule Name
+    Node 6,                  !- Zone Supply Air Node Name
+    Node 5,                  !- Zone Exhaust Air Node Name
+    ,                        !- System Inlet Air Node Name
+    35,                      !- Maximum Heating Supply Air Temperature {C}
+    14.4444444444444,        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Heating Limit
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    NoLimit,                 !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
+    ,                        !- Heating Availability Schedule Name
+    ,                        !- Cooling Availability Schedule Name
+    None,                    !- Dehumidification Control Type
+    ,                        !- Cooling Sensible Heat Ratio {dimensionless}
+    ,                        !- Humidification Control Type
+    ,                        !- Design Specification Outdoor Air Object Name
+    ,                        !- Outdoor Air Inlet Node Name
+    ,                        !- Demand Controlled Ventilation Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
+    ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
+    ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
+
+ZoneHVAC:IdealLoadsAirSystem,
+    Zone_Zone for space WestSpace_WestSpace_{00262}_IdealAir_{00263},  !- Name
+    ,                        !- Availability Schedule Name
+    Node 3,                  !- Zone Supply Air Node Name
+    Node 2,                  !- Zone Exhaust Air Node Name
+    ,                        !- System Inlet Air Node Name
+    35,                      !- Maximum Heating Supply Air Temperature {C}
+    14.4444444444444,        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Heating Limit
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    NoLimit,                 !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
+    ,                        !- Heating Availability Schedule Name
+    ,                        !- Cooling Availability Schedule Name
+    None,                    !- Dehumidification Control Type
+    ,                        !- Cooling Sensible Heat Ratio {dimensionless}
+    ,                        !- Humidification Control Type
+    ,                        !- Design Specification Outdoor Air Object Name
+    ,                        !- Outdoor Air Inlet Node Name
+    ,                        !- Demand Controlled Ventilation Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
+    ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
+    ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
+
+
+!-   ===========  ALL OBJECTS IN CLASS: ZONEHVAC:EQUIPMENTLIST ===========
+
+ZoneHVAC:EquipmentList,
+    Zone_Zone for space CoreSpace_CoreSpace_{00270} Equipment List,  !- Name
+    SequentialLoad,          !- Load Distribution Scheme
+    ZoneHVAC:IdealLoadsAirSystem,  !- Zone Equipment 1 Object Type
+    Zone_Zone for space CoreSpace_CoreSpace_{00270}_IdealAir_{00271},  !- Zone Equipment 1 Name
+    1,                       !- Zone Equipment 1 Cooling Sequence
+    1,                       !- Zone Equipment 1 Heating or No-Load Sequence
+    ,                        !- Zone Equipment 1 Sequential Cooling Fraction Schedule Name
+    ;                        !- Zone Equipment 1 Sequential Heating Fraction Schedule Name
+
+ZoneHVAC:EquipmentList,
+    Zone_Zone for space EastSpace_EastSpace_{00268} Equipment List,  !- Name
+    SequentialLoad,          !- Load Distribution Scheme
+    ZoneHVAC:IdealLoadsAirSystem,  !- Zone Equipment 1 Object Type
+    Zone_Zone for space EastSpace_EastSpace_{00268}_IdealAir_{00269},  !- Zone Equipment 1 Name
+    1,                       !- Zone Equipment 1 Cooling Sequence
+    1,                       !- Zone Equipment 1 Heating or No-Load Sequence
+    ,                        !- Zone Equipment 1 Sequential Cooling Fraction Schedule Name
+    ;                        !- Zone Equipment 1 Sequential Heating Fraction Schedule Name
+
+ZoneHVAC:EquipmentList,
+    Zone_Zone for space NorthSpace_NorthSpace_{00266} Equipment List,  !- Name
+    SequentialLoad,          !- Load Distribution Scheme
+    ZoneHVAC:IdealLoadsAirSystem,  !- Zone Equipment 1 Object Type
+    Zone_Zone for space NorthSpace_NorthSpace_{00266}_IdealAir_{00267},  !- Zone Equipment 1 Name
+    1,                       !- Zone Equipment 1 Cooling Sequence
+    1,                       !- Zone Equipment 1 Heating or No-Load Sequence
+    ,                        !- Zone Equipment 1 Sequential Cooling Fraction Schedule Name
+    ;                        !- Zone Equipment 1 Sequential Heating Fraction Schedule Name
+
+ZoneHVAC:EquipmentList,
+    Zone_Zone for space SouthSpace_SouthSpace_{00264} Equipment List,  !- Name
+    SequentialLoad,          !- Load Distribution Scheme
+    ZoneHVAC:IdealLoadsAirSystem,  !- Zone Equipment 1 Object Type
+    Zone_Zone for space SouthSpace_SouthSpace_{00264}_IdealAir_{00265},  !- Zone Equipment 1 Name
+    1,                       !- Zone Equipment 1 Cooling Sequence
+    1,                       !- Zone Equipment 1 Heating or No-Load Sequence
+    ,                        !- Zone Equipment 1 Sequential Cooling Fraction Schedule Name
+    ;                        !- Zone Equipment 1 Sequential Heating Fraction Schedule Name
+
+ZoneHVAC:EquipmentList,
+    Zone_Zone for space WestSpace_WestSpace_{00262} Equipment List,  !- Name
+    SequentialLoad,          !- Load Distribution Scheme
+    ZoneHVAC:IdealLoadsAirSystem,  !- Zone Equipment 1 Object Type
+    Zone_Zone for space WestSpace_WestSpace_{00262}_IdealAir_{00263},  !- Zone Equipment 1 Name
+    1,                       !- Zone Equipment 1 Cooling Sequence
+    1,                       !- Zone Equipment 1 Heating or No-Load Sequence
+    ,                        !- Zone Equipment 1 Sequential Cooling Fraction Schedule Name
+    ;                        !- Zone Equipment 1 Sequential Heating Fraction Schedule Name
+
+
+!-   ===========  ALL OBJECTS IN CLASS: ZONEHVAC:EQUIPMENTCONNECTIONS ===========
+
+ZoneHVAC:EquipmentConnections,
+    Zone_Zone for space CoreSpace_CoreSpace_{00270},  !- Zone Name
+    Zone_Zone for space CoreSpace_CoreSpace_{00270} Equipment List,  !- Zone Conditioning Equipment List Name
+    Zone_Zone for space CoreSpace_CoreSpace_{00270} Inlet Node List,  !- Zone Air Inlet Node or NodeList Name
+    Zone_Zone for space CoreSpace_CoreSpace_{00270} Exhaust Node List,  !- Zone Air Exhaust Node or NodeList Name
+    Node 13;                 !- Zone Air Node Name
+
+ZoneHVAC:EquipmentConnections,
+    Zone_Zone for space EastSpace_EastSpace_{00268},  !- Zone Name
+    Zone_Zone for space EastSpace_EastSpace_{00268} Equipment List,  !- Zone Conditioning Equipment List Name
+    Zone_Zone for space EastSpace_EastSpace_{00268} Inlet Node List,  !- Zone Air Inlet Node or NodeList Name
+    Zone_Zone for space EastSpace_EastSpace_{00268} Exhaust Node List,  !- Zone Air Exhaust Node or NodeList Name
+    Node 10;                 !- Zone Air Node Name
+
+ZoneHVAC:EquipmentConnections,
+    Zone_Zone for space NorthSpace_NorthSpace_{00266},  !- Zone Name
+    Zone_Zone for space NorthSpace_NorthSpace_{00266} Equipment List,  !- Zone Conditioning Equipment List Name
+    Zone_Zone for space NorthSpace_NorthSpace_{00266} Inlet Node List,  !- Zone Air Inlet Node or NodeList Name
+    Zone_Zone for space NorthSpace_NorthSpace_{00266} Exhaust Node List,  !- Zone Air Exhaust Node or NodeList Name
+    Node 7;                  !- Zone Air Node Name
+
+ZoneHVAC:EquipmentConnections,
+    Zone_Zone for space SouthSpace_SouthSpace_{00264},  !- Zone Name
+    Zone_Zone for space SouthSpace_SouthSpace_{00264} Equipment List,  !- Zone Conditioning Equipment List Name
+    Zone_Zone for space SouthSpace_SouthSpace_{00264} Inlet Node List,  !- Zone Air Inlet Node or NodeList Name
+    Zone_Zone for space SouthSpace_SouthSpace_{00264} Exhaust Node List,  !- Zone Air Exhaust Node or NodeList Name
+    Node 4;                  !- Zone Air Node Name
+
+ZoneHVAC:EquipmentConnections,
+    Zone_Zone for space WestSpace_WestSpace_{00262},  !- Zone Name
+    Zone_Zone for space WestSpace_WestSpace_{00262} Equipment List,  !- Zone Conditioning Equipment List Name
+    Zone_Zone for space WestSpace_WestSpace_{00262} Inlet Node List,  !- Zone Air Inlet Node or NodeList Name
+    Zone_Zone for space WestSpace_WestSpace_{00262} Exhaust Node List,  !- Zone Air Exhaust Node or NodeList Name
+    Node 1;                  !- Zone Air Node Name
+
+
+!-   ===========  ALL OBJECTS IN CLASS: NODELIST ===========
+
+NodeList,
+    Zone_Zone for space CoreSpace_CoreSpace_{00270} Inlet Node List,  !- Name
+    Node 15;                 !- Node 1 Name
+
+NodeList,
+    Zone_Zone for space CoreSpace_CoreSpace_{00270} Exhaust Node List,  !- Name
+    Node 14;                 !- Node 1 Name
+
+NodeList,
+    Zone_Zone for space EastSpace_EastSpace_{00268} Inlet Node List,  !- Name
+    Node 12;                 !- Node 1 Name
+
+NodeList,
+    Zone_Zone for space EastSpace_EastSpace_{00268} Exhaust Node List,  !- Name
+    Node 11;                 !- Node 1 Name
+
+NodeList,
+    Zone_Zone for space NorthSpace_NorthSpace_{00266} Inlet Node List,  !- Name
+    Node 9;                  !- Node 1 Name
+
+NodeList,
+    Zone_Zone for space NorthSpace_NorthSpace_{00266} Exhaust Node List,  !- Name
+    Node 8;                  !- Node 1 Name
+
+NodeList,
+    Zone_Zone for space SouthSpace_SouthSpace_{00264} Inlet Node List,  !- Name
+    Node 6;                  !- Node 1 Name
+
+NodeList,
+    Zone_Zone for space SouthSpace_SouthSpace_{00264} Exhaust Node List,  !- Name
+    Node 5;                  !- Node 1 Name
+
+NodeList,
+    Zone_Zone for space WestSpace_WestSpace_{00262} Inlet Node List,  !- Name
+    Node 3;                  !- Node 1 Name
+
+NodeList,
+    Zone_Zone for space WestSpace_WestSpace_{00262} Exhaust Node List,  !- Name
+    Node 2;                  !- Node 1 Name
+
+
+!-   ===========  ALL OBJECTS IN CLASS: OUTDOORAIR:NODE ===========
+
+OutdoorAir:Node,
+    Model Outdoor Air Node;  !- Name
+
+
+!-   ===========  ALL OBJECTS IN CLASS: LIFECYCLECOST:NONRECURRINGCOST ===========
+
+LifeCycleCost:NonrecurringCost,
+    Default Cost,            !- Name
+    Construction,            !- Category
+    0,                       !- Cost
+    ServicePeriod;           !- Start of Costs
+
+
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLEDICTIONARY ===========
+
+Output:VariableDictionary,
+    IDF,                     !- Key Field
+    Unsorted;                !- Sort Option
+
+
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:TABLE:SUMMARYREPORTS ===========
+
+Output:Table:SummaryReports,
+    AllSummary;              !- Report 1 Name
+
+
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUTCONTROL:TABLE:STYLE ===========
+
+OutputControl:Table:Style,
+    HTML;                    !- Column Separator
+
+
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLE ===========
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Ideal Loads Zone Sensible Cooling Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Infiltration Sensible Heat Loss Energy,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Infiltration Latent Heat Gain Energy,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Infiltration Latent Heat Loss Energy,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Other Equipment Radiant Heating Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Other Equipment Convective Heating Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Other Equipment Latent Gain Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Ideal Loads Zone Latent Cooling Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone People Occupant Count,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Lights Electric Power,   !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Electric Equipment Electric Power,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Windows Total Transmitted Solar Radiation Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Infiltration Standard Density Volume Flow Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Surface Inside Face Conduction Heat Transfer Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Windows Total Heat Loss Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Ideal Loads Zone Sensible Heating Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Ideal Loads Zone Latent Heating Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Surface Window Heat Gain Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Surface Window Heat Loss Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Surface Window Transmitted Solar Radiation Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Surface Inside Face Convection Heat Gain Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone People Convective Heating Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Windows Total Heat Gain Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Electric Equipment Convective Heating Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Lights Convective Heating Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Lights Convective Heating Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Site Outdoor Air Drybulb Temperature,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Site Outdoor Air Wetbulb Temperature,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Thermostat Cooling Setpoint Temperature,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Thermostat Heating Setpoint Temperature,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Schedule Value,          !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Air Temperature,    !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    System Node Temperature, !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Surface Inside Face Conduction Heat Transfer Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    System Node Humidity Ratio,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    System Node Standard Density Volume Flow Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    System Node Mass Flow Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Air System Sensible Heating Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Air System Sensible Cooling Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Site Day Type Index,     !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Predicted Sensible Load to Setpoint Heat Transfer Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Predicted Sensible Load Room Air Correction Factor,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Air Heat Balance Air Energy Storage Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Air Heat Balance Surface Convection Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Lights Total Heating Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Electric Equipment Total Heating Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone People Sensible Heating Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone People Latent Gain Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Infiltration Sensible Heat Gain Energy,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:SQLITE ===========
+
+Output:SQLite,
+    SimpleAndTabular;        !- Option Type
+
