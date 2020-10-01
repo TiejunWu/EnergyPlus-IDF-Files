@@ -3127,7 +3127,7 @@ Fan:OnOff,
     TU1 VRF DX HCoil Outlet Node,  !- Air Inlet Node Name
     TU1 Outlet Node,         !- Air Outlet Node Name
     Fan Power Ratio Curve,   !- Fan Power Ratio Function of Speed Ratio Curve Name
-    Fan Efficiency Curve,    !- Fan Efficiency Ratio Function of Speed Ratio Curve Name
+    Fan Efficiency Ratio Curve,  !- Fan Efficiency Ratio Function of Speed Ratio Curve Name
     General;                 !- End-Use Subcategory
 
 
