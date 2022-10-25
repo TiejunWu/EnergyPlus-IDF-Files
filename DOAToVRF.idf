@@ -1,4 +1,4 @@
-!-Generator IDFEditor 1.51
+!-Generator IDFEditor 1.53
 !-Option SortedOrder
 
 !-NOTE: All comments with '!-' are ignored by the IDFEditor and are generated automatically.
@@ -112,7 +112,7 @@
 ! Environmental Emissions:        None
 ! Utility Tariffs:                None
 Version,
-    9.3;                     !- Version Identifier
+    22.2;                    !- Version Identifier
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SIMULATIONCONTROL ===========
@@ -122,7 +122,9 @@ SimulationControl,
     Yes,                     !- Do System Sizing Calculation
     No,                      !- Do Plant Sizing Calculation
     Yes,                     !- Run Simulation for Sizing Periods
-    Yes;                     !- Run Simulation for Weather File Run Periods
+    Yes,                     !- Run Simulation for Weather File Run Periods
+    No,                      !- Do HVAC Sizing Simulation for Sizing Periods
+    1;                       !- Maximum Number of HVAC Sizing Simulation Passes
 
 
 !-   ===========  ALL OBJECTS IN CLASS: BUILDING ===========
@@ -166,7 +168,7 @@ ZoneAirHeatBalanceAlgorithm,
 !-   ===========  ALL OBJECTS IN CLASS: TIMESTEP ===========
 
 Timestep,
-    6;                       !- Number of Timesteps per Hour
+    4;                       !- Number of Timesteps per Hour
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SITE:LOCATION ===========
@@ -625,6 +627,17 @@ Schedule:Compact,
     Until: 24:00,            !- Field 3
     1;                       !- Field 4
 
+Schedule:Compact,
+    Zone 5 Heat Source Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: WinterDesignDay,    !- Field 2
+    Until: 24:00,            !- Field 3
+    1,                       !- Field 4
+    For: AllOtherDays,       !- Field 5
+    Until: 24:00,            !- Field 6
+    0;                       !- Field 7
+
 
 !-   ===========  ALL OBJECTS IN CLASS: MATERIAL ===========
 
@@ -996,6 +1009,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     WALL-1,                  !- Construction Name
     PLENUM-1,                !- Zone Name
+    ,                        !- Space Name
     Outdoors,                !- Outside Boundary Condition
     ,                        !- Outside Boundary Condition Object
     SunExposed,              !- Sun Exposure
@@ -1020,6 +1034,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     WALL-1,                  !- Construction Name
     PLENUM-1,                !- Zone Name
+    ,                        !- Space Name
     Outdoors,                !- Outside Boundary Condition
     ,                        !- Outside Boundary Condition Object
     SunExposed,              !- Sun Exposure
@@ -1044,6 +1059,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     WALL-1,                  !- Construction Name
     PLENUM-1,                !- Zone Name
+    ,                        !- Space Name
     Outdoors,                !- Outside Boundary Condition
     ,                        !- Outside Boundary Condition Object
     SunExposed,              !- Sun Exposure
@@ -1068,6 +1084,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     WALL-1,                  !- Construction Name
     PLENUM-1,                !- Zone Name
+    ,                        !- Space Name
     Outdoors,                !- Outside Boundary Condition
     ,                        !- Outside Boundary Condition Object
     SunExposed,              !- Sun Exposure
@@ -1092,6 +1109,7 @@ BuildingSurface:Detailed,
     ROOF,                    !- Surface Type
     ROOF-1,                  !- Construction Name
     PLENUM-1,                !- Zone Name
+    ,                        !- Space Name
     Outdoors,                !- Outside Boundary Condition
     ,                        !- Outside Boundary Condition Object
     SunExposed,              !- Sun Exposure
@@ -1116,6 +1134,7 @@ BuildingSurface:Detailed,
     FLOOR,                   !- Surface Type
     CLNG-1,                  !- Construction Name
     PLENUM-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     C1-1,                    !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1140,6 +1159,7 @@ BuildingSurface:Detailed,
     FLOOR,                   !- Surface Type
     CLNG-1,                  !- Construction Name
     PLENUM-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     C2-1,                    !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1164,6 +1184,7 @@ BuildingSurface:Detailed,
     FLOOR,                   !- Surface Type
     CLNG-1,                  !- Construction Name
     PLENUM-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     C3-1,                    !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1188,6 +1209,7 @@ BuildingSurface:Detailed,
     FLOOR,                   !- Surface Type
     CLNG-1,                  !- Construction Name
     PLENUM-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     C4-1,                    !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1212,6 +1234,7 @@ BuildingSurface:Detailed,
     FLOOR,                   !- Surface Type
     CLNG-1,                  !- Construction Name
     PLENUM-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     C5-1,                    !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1236,6 +1259,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     WALL-1,                  !- Construction Name
     SPACE1-1,                !- Zone Name
+    ,                        !- Space Name
     Outdoors,                !- Outside Boundary Condition
     ,                        !- Outside Boundary Condition Object
     SunExposed,              !- Sun Exposure
@@ -1260,6 +1284,7 @@ BuildingSurface:Detailed,
     CEILING,                 !- Surface Type
     CLNG-1,                  !- Construction Name
     SPACE1-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     C1-1P,                   !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1284,6 +1309,7 @@ BuildingSurface:Detailed,
     FLOOR,                   !- Surface Type
     FLOOR-SLAB-1,            !- Construction Name
     SPACE1-1,                !- Zone Name
+    ,                        !- Space Name
     Ground,                  !- Outside Boundary Condition
     ,                        !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1308,6 +1334,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     INT-WALL-1,              !- Construction Name
     SPACE1-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     SB21,                    !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1332,6 +1359,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     INT-WALL-1,              !- Construction Name
     SPACE1-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     SB41,                    !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1356,6 +1384,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     INT-WALL-1,              !- Construction Name
     SPACE1-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     SB51,                    !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1380,6 +1409,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     WALL-1,                  !- Construction Name
     SPACE2-1,                !- Zone Name
+    ,                        !- Space Name
     Outdoors,                !- Outside Boundary Condition
     ,                        !- Outside Boundary Condition Object
     SunExposed,              !- Sun Exposure
@@ -1404,6 +1434,7 @@ BuildingSurface:Detailed,
     CEILING,                 !- Surface Type
     CLNG-1,                  !- Construction Name
     SPACE2-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     C2-1P,                   !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1428,6 +1459,7 @@ BuildingSurface:Detailed,
     FLOOR,                   !- Surface Type
     FLOOR-SLAB-1,            !- Construction Name
     SPACE2-1,                !- Zone Name
+    ,                        !- Space Name
     Ground,                  !- Outside Boundary Condition
     ,                        !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1452,6 +1484,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     INT-WALL-1,              !- Construction Name
     SPACE2-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     SB12,                    !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1476,6 +1509,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     INT-WALL-1,              !- Construction Name
     SPACE2-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     SB32,                    !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1500,6 +1534,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     INT-WALL-1,              !- Construction Name
     SPACE2-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     SB52,                    !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1524,6 +1559,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     WALL-1,                  !- Construction Name
     SPACE3-1,                !- Zone Name
+    ,                        !- Space Name
     Outdoors,                !- Outside Boundary Condition
     ,                        !- Outside Boundary Condition Object
     SunExposed,              !- Sun Exposure
@@ -1548,6 +1584,7 @@ BuildingSurface:Detailed,
     CEILING,                 !- Surface Type
     CLNG-1,                  !- Construction Name
     SPACE3-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     C3-1P,                   !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1572,6 +1609,7 @@ BuildingSurface:Detailed,
     FLOOR,                   !- Surface Type
     FLOOR-SLAB-1,            !- Construction Name
     SPACE3-1,                !- Zone Name
+    ,                        !- Space Name
     Ground,                  !- Outside Boundary Condition
     ,                        !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1596,6 +1634,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     INT-WALL-1,              !- Construction Name
     SPACE3-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     SB23,                    !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1620,6 +1659,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     INT-WALL-1,              !- Construction Name
     SPACE3-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     SB43,                    !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1644,6 +1684,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     INT-WALL-1,              !- Construction Name
     SPACE3-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     SB53,                    !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1668,6 +1709,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     WALL-1,                  !- Construction Name
     SPACE4-1,                !- Zone Name
+    ,                        !- Space Name
     Outdoors,                !- Outside Boundary Condition
     ,                        !- Outside Boundary Condition Object
     SunExposed,              !- Sun Exposure
@@ -1692,6 +1734,7 @@ BuildingSurface:Detailed,
     CEILING,                 !- Surface Type
     CLNG-1,                  !- Construction Name
     SPACE4-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     C4-1P,                   !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1716,6 +1759,7 @@ BuildingSurface:Detailed,
     FLOOR,                   !- Surface Type
     FLOOR-SLAB-1,            !- Construction Name
     SPACE4-1,                !- Zone Name
+    ,                        !- Space Name
     Ground,                  !- Outside Boundary Condition
     ,                        !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1740,6 +1784,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     INT-WALL-1,              !- Construction Name
     SPACE4-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     SB14,                    !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1764,6 +1809,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     INT-WALL-1,              !- Construction Name
     SPACE4-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     SB34,                    !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1788,6 +1834,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     INT-WALL-1,              !- Construction Name
     SPACE4-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     SB54,                    !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1812,6 +1859,7 @@ BuildingSurface:Detailed,
     CEILING,                 !- Surface Type
     CLNG-1,                  !- Construction Name
     SPACE5-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     C5-1P,                   !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1836,6 +1884,7 @@ BuildingSurface:Detailed,
     FLOOR,                   !- Surface Type
     FLOOR-SLAB-1,            !- Construction Name
     SPACE5-1,                !- Zone Name
+    ,                        !- Space Name
     Ground,                  !- Outside Boundary Condition
     ,                        !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1860,6 +1909,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     INT-WALL-1,              !- Construction Name
     SPACE5-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     SB15,                    !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1884,6 +1934,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     INT-WALL-1,              !- Construction Name
     SPACE5-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     SB25,                    !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1908,6 +1959,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     INT-WALL-1,              !- Construction Name
     SPACE5-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     SB35,                    !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -1932,6 +1984,7 @@ BuildingSurface:Detailed,
     WALL,                    !- Surface Type
     INT-WALL-1,              !- Construction Name
     SPACE5-1,                !- Zone Name
+    ,                        !- Space Name
     Surface,                 !- Outside Boundary Condition
     SB45,                    !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
@@ -2136,60 +2189,60 @@ Shading:Zone:Detailed,
 
 People,
     SPACE1-1 People 1,       !- Name
-    SPACE1-1,                !- Zone or ZoneList Name
+    SPACE1-1,                !- Zone or ZoneList or Space or SpaceList Name
     OCCUPY-1,                !- Number of People Schedule Name
     people,                  !- Number of People Calculation Method
     11,                      !- Number of People
-    ,                        !- People per Zone Floor Area {person/m2}
-    ,                        !- Zone Floor Area per Person {m2/person}
+    ,                        !- People per Floor Area {person/m2}
+    ,                        !- Floor Area per Person {m2/person}
     0.3,                     !- Fraction Radiant
     AutoCalculate,           !- Sensible Heat Fraction
     ActSchd;                 !- Activity Level Schedule Name
 
 People,
     SPACE2-1 People 1,       !- Name
-    SPACE2-1,                !- Zone or ZoneList Name
+    SPACE2-1,                !- Zone or ZoneList or Space or SpaceList Name
     OCCUPY-1,                !- Number of People Schedule Name
     people,                  !- Number of People Calculation Method
     5,                       !- Number of People
-    ,                        !- People per Zone Floor Area {person/m2}
-    ,                        !- Zone Floor Area per Person {m2/person}
+    ,                        !- People per Floor Area {person/m2}
+    ,                        !- Floor Area per Person {m2/person}
     0.3,                     !- Fraction Radiant
     AutoCalculate,           !- Sensible Heat Fraction
     ActSchd;                 !- Activity Level Schedule Name
 
 People,
     SPACE3-1 People 1,       !- Name
-    SPACE3-1,                !- Zone or ZoneList Name
+    SPACE3-1,                !- Zone or ZoneList or Space or SpaceList Name
     OCCUPY-1,                !- Number of People Schedule Name
     people,                  !- Number of People Calculation Method
     11,                      !- Number of People
-    ,                        !- People per Zone Floor Area {person/m2}
-    ,                        !- Zone Floor Area per Person {m2/person}
+    ,                        !- People per Floor Area {person/m2}
+    ,                        !- Floor Area per Person {m2/person}
     0.3,                     !- Fraction Radiant
     AutoCalculate,           !- Sensible Heat Fraction
     ActSchd;                 !- Activity Level Schedule Name
 
 People,
     SPACE4-1 People 1,       !- Name
-    SPACE4-1,                !- Zone or ZoneList Name
+    SPACE4-1,                !- Zone or ZoneList or Space or SpaceList Name
     OCCUPY-1,                !- Number of People Schedule Name
     people,                  !- Number of People Calculation Method
     5,                       !- Number of People
-    ,                        !- People per Zone Floor Area {person/m2}
-    ,                        !- Zone Floor Area per Person {m2/person}
+    ,                        !- People per Floor Area {person/m2}
+    ,                        !- Floor Area per Person {m2/person}
     0.3,                     !- Fraction Radiant
     AutoCalculate,           !- Sensible Heat Fraction
     ActSchd;                 !- Activity Level Schedule Name
 
 People,
     SPACE5-1 People 1,       !- Name
-    SPACE5-1,                !- Zone or ZoneList Name
+    SPACE5-1,                !- Zone or ZoneList or Space or SpaceList Name
     OCCUPY-1,                !- Number of People Schedule Name
     people,                  !- Number of People Calculation Method
     20,                      !- Number of People
-    ,                        !- People per Zone Floor Area {person/m2}
-    ,                        !- Zone Floor Area per Person {m2/person}
+    ,                        !- People per Floor Area {person/m2}
+    ,                        !- Floor Area per Person {m2/person}
     0.3,                     !- Fraction Radiant
     AutoCalculate,           !- Sensible Heat Fraction
     ActSchd;                 !- Activity Level Schedule Name
@@ -2199,7 +2252,7 @@ People,
 
 Lights,
     SPACE1-1 Lights 1,       !- Name
-    SPACE1-1,                !- Zone or ZoneList Name
+    SPACE1-1,                !- Zone or ZoneList or Space or SpaceList Name
     LIGHTS-1,                !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
@@ -2213,7 +2266,7 @@ Lights,
 
 Lights,
     SPACE2-1 Lights 1,       !- Name
-    SPACE2-1,                !- Zone or ZoneList Name
+    SPACE2-1,                !- Zone or ZoneList or Space or SpaceList Name
     LIGHTS-1,                !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
@@ -2227,7 +2280,7 @@ Lights,
 
 Lights,
     SPACE3-1 Lights 1,       !- Name
-    SPACE3-1,                !- Zone or ZoneList Name
+    SPACE3-1,                !- Zone or ZoneList or Space or SpaceList Name
     LIGHTS-1,                !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
@@ -2241,7 +2294,7 @@ Lights,
 
 Lights,
     SPACE4-1 Lights 1,       !- Name
-    SPACE4-1,                !- Zone or ZoneList Name
+    SPACE4-1,                !- Zone or ZoneList or Space or SpaceList Name
     LIGHTS-1,                !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
@@ -2255,7 +2308,7 @@ Lights,
 
 Lights,
     SPACE5-1 Lights 1,       !- Name
-    SPACE5-1,                !- Zone or ZoneList Name
+    SPACE5-1,                !- Zone or ZoneList or Space or SpaceList Name
     LIGHTS-1,                !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
@@ -2272,7 +2325,7 @@ Lights,
 
 ElectricEquipment,
     SPACE1-1 ElecEq 1,       !- Name
-    SPACE1-1,                !- Zone or ZoneList Name
+    SPACE1-1,                !- Zone or ZoneList or Space or SpaceList Name
     EQUIP-1,                 !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Design Level {W}
@@ -2284,7 +2337,7 @@ ElectricEquipment,
 
 ElectricEquipment,
     SPACE2-1 ElecEq 1,       !- Name
-    SPACE2-1,                !- Zone or ZoneList Name
+    SPACE2-1,                !- Zone or ZoneList or Space or SpaceList Name
     EQUIP-1,                 !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Design Level {W}
@@ -2296,7 +2349,7 @@ ElectricEquipment,
 
 ElectricEquipment,
     SPACE3-1 ElecEq 1,       !- Name
-    SPACE3-1,                !- Zone or ZoneList Name
+    SPACE3-1,                !- Zone or ZoneList or Space or SpaceList Name
     EQUIP-1,                 !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Design Level {W}
@@ -2308,7 +2361,7 @@ ElectricEquipment,
 
 ElectricEquipment,
     SPACE4-1 ElecEq 1,       !- Name
-    SPACE4-1,                !- Zone or ZoneList Name
+    SPACE4-1,                !- Zone or ZoneList or Space or SpaceList Name
     EQUIP-1,                 !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Design Level {W}
@@ -2320,7 +2373,7 @@ ElectricEquipment,
 
 ElectricEquipment,
     SPACE5-1 ElecEq 1,       !- Name
-    SPACE5-1,                !- Zone or ZoneList Name
+    SPACE5-1,                !- Zone or ZoneList or Space or SpaceList Name
     EQUIP-1,                 !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Design Level {W}
@@ -2331,16 +2384,94 @@ ElectricEquipment,
     0;                       !- Fraction Lost
 
 
+!-   ===========  ALL OBJECTS IN CLASS: OTHEREQUIPMENT ===========
+
+OtherEquipment,
+    Zone5 HeatSource,        !- Name
+    None,                    !- Fuel Type
+    SPACE5-1,                !- Zone or ZoneList or Space or SpaceList Name
+    Zone 5 Heat Source Schedule,  !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    15000,                   !- Design Level {W}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/person}
+    0,                       !- Fraction Latent
+    0,                       !- Fraction Radiant
+    0,                       !- Fraction Lost
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    General;                 !- End-Use Subcategory
+
+OtherEquipment,
+    Zone1 Heat Sink,         !- Name
+    None,                    !- Fuel Type
+    SPACE1-1,                !- Zone or ZoneList or Space or SpaceList Name
+    Zone 5 Heat Source Schedule,  !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    -1000,                   !- Design Level {W}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/person}
+    ,                        !- Fraction Latent
+    ,                        !- Fraction Radiant
+    ,                        !- Fraction Lost
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    General;                 !- End-Use Subcategory
+
+OtherEquipment,
+    Zone2 Heat Sink,         !- Name
+    None,                    !- Fuel Type
+    SPACE2-1,                !- Zone or ZoneList or Space or SpaceList Name
+    Zone 5 Heat Source Schedule,  !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    -1000,                   !- Design Level {W}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/person}
+    ,                        !- Fraction Latent
+    ,                        !- Fraction Radiant
+    ,                        !- Fraction Lost
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    General;                 !- End-Use Subcategory
+
+OtherEquipment,
+    Zone3 Heat Sink,         !- Name
+    None,                    !- Fuel Type
+    SPACE3-1,                !- Zone or ZoneList or Space or SpaceList Name
+    Zone 5 Heat Source Schedule,  !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    -1000,                   !- Design Level {W}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/person}
+    ,                        !- Fraction Latent
+    ,                        !- Fraction Radiant
+    ,                        !- Fraction Lost
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    General;                 !- End-Use Subcategory
+
+OtherEquipment,
+    Zone4 Heat Sink,         !- Name
+    None,                    !- Fuel Type
+    SPACE4-1,                !- Zone or ZoneList or Space or SpaceList Name
+    Zone 5 Heat Source Schedule,  !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    -1000,                   !- Design Level {W}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/person}
+    ,                        !- Fraction Latent
+    ,                        !- Fraction Radiant
+    ,                        !- Fraction Lost
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    General;                 !- End-Use Subcategory
+
+
 !-   ===========  ALL OBJECTS IN CLASS: ZONEINFILTRATION:DESIGNFLOWRATE ===========
 
 ZoneInfiltration:DesignFlowRate,
     SPACE1-1 Infil 1,        !- Name
-    SPACE1-1,                !- Zone or ZoneList Name
+    SPACE1-1,                !- Zone or ZoneList or Space or SpaceList Name
     INFIL-SCH,               !- Schedule Name
     flow/zone,               !- Design Flow Rate Calculation Method
     0.0167,                  !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Flow Rate per Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
     0,                       !- Constant Term Coefficient
     0,                       !- Temperature Term Coefficient
@@ -2349,12 +2480,12 @@ ZoneInfiltration:DesignFlowRate,
 
 ZoneInfiltration:DesignFlowRate,
     SPACE2-1 Infil 1,        !- Name
-    SPACE2-1,                !- Zone or ZoneList Name
+    SPACE2-1,                !- Zone or ZoneList or Space or SpaceList Name
     INFIL-SCH,               !- Schedule Name
     flow/zone,               !- Design Flow Rate Calculation Method
     0.00717,                 !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Flow Rate per Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
     0,                       !- Constant Term Coefficient
     0,                       !- Temperature Term Coefficient
@@ -2363,12 +2494,12 @@ ZoneInfiltration:DesignFlowRate,
 
 ZoneInfiltration:DesignFlowRate,
     SPACE3-1 Infil 1,        !- Name
-    SPACE3-1,                !- Zone or ZoneList Name
+    SPACE3-1,                !- Zone or ZoneList or Space or SpaceList Name
     INFIL-SCH,               !- Schedule Name
     flow/zone,               !- Design Flow Rate Calculation Method
     0.0167,                  !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Flow Rate per Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
     0,                       !- Constant Term Coefficient
     0,                       !- Temperature Term Coefficient
@@ -2377,12 +2508,12 @@ ZoneInfiltration:DesignFlowRate,
 
 ZoneInfiltration:DesignFlowRate,
     SPACE4-1 Infil 1,        !- Name
-    SPACE4-1,                !- Zone or ZoneList Name
+    SPACE4-1,                !- Zone or ZoneList or Space or SpaceList Name
     INFIL-SCH,               !- Schedule Name
     flow/zone,               !- Design Flow Rate Calculation Method
     0.00717,                 !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Flow Rate per Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
     0,                       !- Constant Term Coefficient
     0,                       !- Temperature Term Coefficient
@@ -2391,12 +2522,12 @@ ZoneInfiltration:DesignFlowRate,
 
 ZoneInfiltration:DesignFlowRate,
     SPACE5-1 Infil 1,        !- Name
-    SPACE5-1,                !- Zone or ZoneList Name
+    SPACE5-1,                !- Zone or ZoneList or Space or SpaceList Name
     INFIL-SCH,               !- Schedule Name
     flow/zone,               !- Design Flow Rate Calculation Method
     0.031089,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Flow Rate per Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
     0,                       !- Constant Term Coefficient
     0,                       !- Temperature Term Coefficient
@@ -2488,7 +2619,14 @@ Sizing:Zone,
     No,                      !- Account for Dedicated Outdoor Air System
     ColdSupplyAir,           !- Dedicated Outdoor Air System Control Strategy
     14.8,                    !- Dedicated Outdoor Air Low Setpoint Temperature for Design {C}
-    15.6;                    !- Dedicated Outdoor Air High Setpoint Temperature for Design {C}
+    15.6,                    !- Dedicated Outdoor Air High Setpoint Temperature for Design {C}
+    ,                        !- Zone Load Sizing Method
+    ,                        !- Zone Latent Cooling Design Supply Air Humidity Ratio Input Method
+    ,                        !- Zone Dehumidification Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Zone Cooling Design Supply Air Humidity Ratio Difference {kgWater/kgDryAir}
+    ,                        !- Zone Latent Heating Design Supply Air Humidity Ratio Input Method
+    ,                        !- Zone Humidification Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ;                        !- Zone Humidification Design Supply Air Humidity Ratio Difference {kgWater/kgDryAir}
 
 Sizing:Zone,
     SPACE2-1,                !- Zone or ZoneList Name
@@ -2517,7 +2655,14 @@ Sizing:Zone,
     No,                      !- Account for Dedicated Outdoor Air System
     ColdSupplyAir,           !- Dedicated Outdoor Air System Control Strategy
     14.8,                    !- Dedicated Outdoor Air Low Setpoint Temperature for Design {C}
-    15.6;                    !- Dedicated Outdoor Air High Setpoint Temperature for Design {C}
+    15.6,                    !- Dedicated Outdoor Air High Setpoint Temperature for Design {C}
+    ,                        !- Zone Load Sizing Method
+    ,                        !- Zone Latent Cooling Design Supply Air Humidity Ratio Input Method
+    ,                        !- Zone Dehumidification Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Zone Cooling Design Supply Air Humidity Ratio Difference {kgWater/kgDryAir}
+    ,                        !- Zone Latent Heating Design Supply Air Humidity Ratio Input Method
+    ,                        !- Zone Humidification Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ;                        !- Zone Humidification Design Supply Air Humidity Ratio Difference {kgWater/kgDryAir}
 
 Sizing:Zone,
     SPACE3-1,                !- Zone or ZoneList Name
@@ -2546,7 +2691,14 @@ Sizing:Zone,
     No,                      !- Account for Dedicated Outdoor Air System
     ColdSupplyAir,           !- Dedicated Outdoor Air System Control Strategy
     14.8,                    !- Dedicated Outdoor Air Low Setpoint Temperature for Design {C}
-    15.6;                    !- Dedicated Outdoor Air High Setpoint Temperature for Design {C}
+    15.6,                    !- Dedicated Outdoor Air High Setpoint Temperature for Design {C}
+    ,                        !- Zone Load Sizing Method
+    ,                        !- Zone Latent Cooling Design Supply Air Humidity Ratio Input Method
+    ,                        !- Zone Dehumidification Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Zone Cooling Design Supply Air Humidity Ratio Difference {kgWater/kgDryAir}
+    ,                        !- Zone Latent Heating Design Supply Air Humidity Ratio Input Method
+    ,                        !- Zone Humidification Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ;                        !- Zone Humidification Design Supply Air Humidity Ratio Difference {kgWater/kgDryAir}
 
 Sizing:Zone,
     SPACE4-1,                !- Zone or ZoneList Name
@@ -2575,7 +2727,14 @@ Sizing:Zone,
     Yes,                     !- Account for Dedicated Outdoor Air System
     ColdSupplyAir,           !- Dedicated Outdoor Air System Control Strategy
     14.8,                    !- Dedicated Outdoor Air Low Setpoint Temperature for Design {C}
-    15.6;                    !- Dedicated Outdoor Air High Setpoint Temperature for Design {C}
+    15.6,                    !- Dedicated Outdoor Air High Setpoint Temperature for Design {C}
+    ,                        !- Zone Load Sizing Method
+    ,                        !- Zone Latent Cooling Design Supply Air Humidity Ratio Input Method
+    ,                        !- Zone Dehumidification Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Zone Cooling Design Supply Air Humidity Ratio Difference {kgWater/kgDryAir}
+    ,                        !- Zone Latent Heating Design Supply Air Humidity Ratio Input Method
+    ,                        !- Zone Humidification Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ;                        !- Zone Humidification Design Supply Air Humidity Ratio Difference {kgWater/kgDryAir}
 
 Sizing:Zone,
     SPACE5-1,                !- Zone or ZoneList Name
@@ -2604,7 +2763,14 @@ Sizing:Zone,
     Yes,                     !- Account for Dedicated Outdoor Air System
     ColdSupplyAir,           !- Dedicated Outdoor Air System Control Strategy
     14.5,                    !- Dedicated Outdoor Air Low Setpoint Temperature for Design {C}
-    15.6;                    !- Dedicated Outdoor Air High Setpoint Temperature for Design {C}
+    15.6,                    !- Dedicated Outdoor Air High Setpoint Temperature for Design {C}
+    ,                        !- Zone Load Sizing Method
+    ,                        !- Zone Latent Cooling Design Supply Air Humidity Ratio Input Method
+    ,                        !- Zone Dehumidification Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Zone Cooling Design Supply Air Humidity Ratio Difference {kgWater/kgDryAir}
+    ,                        !- Zone Latent Heating Design Supply Air Humidity Ratio Input Method
+    ,                        !- Zone Humidification Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ;                        !- Zone Humidification Design Supply Air Humidity Ratio Difference {kgWater/kgDryAir}
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SIZING:SYSTEM ===========
@@ -2742,7 +2908,13 @@ ZoneHVAC:TerminalUnit:VariableRefrigerantFlow,
     COIL:Heating:DX:VariableRefrigerantFlow,  !- Heating Coil Object Type
     TU1 VRF DX Heating Coil, !- Heating Coil Object Name
     30,                      !- Zone Terminal Unit On Parasitic Electric Energy Use {W}
-    20;                      !- Zone Terminal Unit Off Parasitic Electric Energy Use {W}
+    20,                      !- Zone Terminal Unit Off Parasitic Electric Energy Use {W}
+    ,                        !- Rated Heating Capacity Sizing Ratio {W/W}
+    ,                        !- Availability Manager List Name
+    ,                        !- Design Specification ZoneHVAC Sizing Object Name
+    Coil:Heating:Electric,   !- Supplemental Heating Coil Object Type
+    TU1 Supplement Coil,     !- Supplemental Heating Coil Name
+    35;                      !- Maximum Supply Air Temperature from Supplemental Heater {C}
 
 ZoneHVAC:TerminalUnit:VariableRefrigerantFlow,
     TU2,                     !- Zone Terminal Unit Name
@@ -2767,7 +2939,13 @@ ZoneHVAC:TerminalUnit:VariableRefrigerantFlow,
     COIL:Heating:DX:VariableRefrigerantFlow,  !- Heating Coil Object Type
     TU2 VRF DX Heating Coil, !- Heating Coil Object Name
     30,                      !- Zone Terminal Unit On Parasitic Electric Energy Use {W}
-    20;                      !- Zone Terminal Unit Off Parasitic Electric Energy Use {W}
+    20,                      !- Zone Terminal Unit Off Parasitic Electric Energy Use {W}
+    ,                        !- Rated Heating Capacity Sizing Ratio {W/W}
+    ,                        !- Availability Manager List Name
+    ,                        !- Design Specification ZoneHVAC Sizing Object Name
+    Coil:Heating:Electric,   !- Supplemental Heating Coil Object Type
+    TU2 Supplement Coil,     !- Supplemental Heating Coil Name
+    35;                      !- Maximum Supply Air Temperature from Supplemental Heater {C}
 
 ZoneHVAC:TerminalUnit:VariableRefrigerantFlow,
     TU4,                     !- Zone Terminal Unit Name
@@ -2792,7 +2970,13 @@ ZoneHVAC:TerminalUnit:VariableRefrigerantFlow,
     COIL:Heating:DX:VariableRefrigerantFlow,  !- Heating Coil Object Type
     TU4 VRF DX Heating Coil, !- Heating Coil Object Name
     30,                      !- Zone Terminal Unit On Parasitic Electric Energy Use {W}
-    20;                      !- Zone Terminal Unit Off Parasitic Electric Energy Use {W}
+    20,                      !- Zone Terminal Unit Off Parasitic Electric Energy Use {W}
+    ,                        !- Rated Heating Capacity Sizing Ratio {W/W}
+    ,                        !- Availability Manager List Name
+    ,                        !- Design Specification ZoneHVAC Sizing Object Name
+    Coil:Heating:Electric,   !- Supplemental Heating Coil Object Type
+    TU4 Supplement Coil,     !- Supplemental Heating Coil Name
+    35;                      !- Maximum Supply Air Temperature from Supplemental Heater {C}
 
 ZoneHVAC:TerminalUnit:VariableRefrigerantFlow,
     TU3,                     !- Zone Terminal Unit Name
@@ -2817,7 +3001,13 @@ ZoneHVAC:TerminalUnit:VariableRefrigerantFlow,
     COIL:Heating:DX:VariableRefrigerantFlow,  !- Heating Coil Object Type
     TU3 VRF DX Heating Coil, !- Heating Coil Object Name
     30,                      !- Zone Terminal Unit On Parasitic Electric Energy Use {W}
-    20;                      !- Zone Terminal Unit Off Parasitic Electric Energy Use {W}
+    20,                      !- Zone Terminal Unit Off Parasitic Electric Energy Use {W}
+    ,                        !- Rated Heating Capacity Sizing Ratio {W/W}
+    ,                        !- Availability Manager List Name
+    ,                        !- Design Specification ZoneHVAC Sizing Object Name
+    Coil:Heating:Electric,   !- Supplemental Heating Coil Object Type
+    TU3 Supplement Coil,     !- Supplemental Heating Coil Name
+    35;                      !- Maximum Supply Air Temperature from Supplemental Heater {C}
 
 ZoneHVAC:TerminalUnit:VariableRefrigerantFlow,
     TU5,                     !- Zone Terminal Unit Name
@@ -2842,7 +3032,13 @@ ZoneHVAC:TerminalUnit:VariableRefrigerantFlow,
     COIL:Heating:DX:VariableRefrigerantFlow,  !- Heating Coil Object Type
     TU5 VRF DX Heating Coil, !- Heating Coil Object Name
     30,                      !- Zone Terminal Unit On Parasitic Electric Energy Use {W}
-    20;                      !- Zone Terminal Unit Off Parasitic Electric Energy Use {W}
+    20,                      !- Zone Terminal Unit Off Parasitic Electric Energy Use {W}
+    ,                        !- Rated Heating Capacity Sizing Ratio {W/W}
+    ,                        !- Availability Manager List Name
+    ,                        !- Design Specification ZoneHVAC Sizing Object Name
+    Coil:Heating:Electric,   !- Supplemental Heating Coil Object Type
+    TU5 Supplement Coil,     !- Supplemental Heating Coil Name
+    35;                      !- Maximum Supply Air Temperature from Supplemental Heater {C}
 
 
 !-   ===========  ALL OBJECTS IN CLASS: AIRTERMINAL:SINGLEDUCT:MIXER ===========
@@ -3053,7 +3249,7 @@ Fan:ConstantVolume,
     0.9,                     !- Motor Efficiency
     1.0,                     !- Motor In Airstream Fraction
     TU1 VRF DX HCoil Outlet Node,  !- Air Inlet Node Name
-    TU1 Outlet Node;         !- Air Outlet Node Name
+    TU1 Fan Outlet Node;     !- Air Outlet Node Name
 
 Fan:ConstantVolume,
     TU2 VRF Supply Fan,      !- Name
@@ -3064,7 +3260,7 @@ Fan:ConstantVolume,
     0.9,                     !- Motor Efficiency
     1.0,                     !- Motor In Airstream Fraction
     TU2 VRF DX HCoil Outlet Node,  !- Air Inlet Node Name
-    TU2 Outlet Node;         !- Air Outlet Node Name
+    TU2 Fan Outlet Node;     !- Air Outlet Node Name
 
 Fan:ConstantVolume,
     TU3 VRF Supply Fan,      !- Name
@@ -3075,7 +3271,7 @@ Fan:ConstantVolume,
     0.9,                     !- Motor Efficiency
     1.0,                     !- Motor In Airstream Fraction
     TU3 VRF DX HCoil Outlet Node,  !- Air Inlet Node Name
-    TU3 Outlet Node;         !- Air Outlet Node Name
+    TU3 Fan Outlet Node;     !- Air Outlet Node Name
 
 Fan:ConstantVolume,
     TU4 VRF Supply Fan,      !- Name
@@ -3086,7 +3282,7 @@ Fan:ConstantVolume,
     0.9,                     !- Motor Efficiency
     1.0,                     !- Motor In Airstream Fraction
     TU4 VRF DX HCoil Outlet Node,  !- Air Inlet Node Name
-    SPACE4-1 Air Terminal Mixer Secondary Inlet;  !- Air Outlet Node Name
+    TU4 Fan Outlet Node;     !- Air Outlet Node Name
 
 Fan:ConstantVolume,
     TU5 VRF Supply Fan,      !- Name
@@ -3097,7 +3293,7 @@ Fan:ConstantVolume,
     0.9,                     !- Motor Efficiency
     1.0,                     !- Motor In Airstream Fraction
     TU5 VRF DX HCoil Outlet Node,  !- Air Inlet Node Name
-    SPACE5-1 Air Terminal Mixer Secondary Inlet;  !- Air Outlet Node Name
+    TU5 Fan Outlet Node;     !- Air Outlet Node Name
 
 
 !-   ===========  ALL OBJECTS IN CLASS: FAN:VARIABLEVOLUME ===========
@@ -3236,6 +3432,49 @@ Coil:Heating:DX:VariableRefrigerantFlow,
     VRFACCoolCapFFF;         !- Heating Capacity Modifier Function of Flow Fraction Curve Name
 
 
+!-   ===========  ALL OBJECTS IN CLASS: COIL:HEATING:ELECTRIC ===========
+
+Coil:Heating:Electric,
+    TU1 Supplement Coil,     !- Name
+    ,                        !- Availability Schedule Name
+    1,                       !- Efficiency
+    1000,                    !- Nominal Capacity {W}
+    TU1 Fan Outlet Node,     !- Air Inlet Node Name
+    TU1 Outlet Node;         !- Air Outlet Node Name
+
+Coil:Heating:Electric,
+    TU2 Supplement Coil,     !- Name
+    ,                        !- Availability Schedule Name
+    1,                       !- Efficiency
+    1000,                    !- Nominal Capacity {W}
+    TU2 Fan Outlet Node,     !- Air Inlet Node Name
+    TU2 Outlet Node;         !- Air Outlet Node Name
+
+Coil:Heating:Electric,
+    TU3 Supplement Coil,     !- Name
+    ,                        !- Availability Schedule Name
+    1,                       !- Efficiency
+    1000,                    !- Nominal Capacity {W}
+    TU3 Fan Outlet Node,     !- Air Inlet Node Name
+    TU3 Outlet Node;         !- Air Outlet Node Name
+
+Coil:Heating:Electric,
+    TU4 Supplement Coil,     !- Name
+    ,                        !- Availability Schedule Name
+    1,                       !- Efficiency
+    1000,                    !- Nominal Capacity {W}
+    TU4 Fan Outlet Node,     !- Air Inlet Node Name
+    SPACE4-1 Air Terminal Mixer Secondary Inlet;  !- Air Outlet Node Name
+
+Coil:Heating:Electric,
+    TU5 Supplement Coil,     !- Name
+    ,                        !- Availability Schedule Name
+    1,                       !- Efficiency
+    1000,                    !- Nominal Capacity {W}
+    TU5 Fan Outlet Node,     !- Air Inlet Node Name
+    SPACE5-1 Air Terminal Mixer Secondary Inlet;  !- Air Outlet Node Name
+
+
 !-   ===========  ALL OBJECTS IN CLASS: HEATEXCHANGER:AIRTOAIR:SENSIBLEANDLATENT ===========
 
 HeatExchanger:AirToAir:SensibleAndLatent,
@@ -3279,8 +3518,8 @@ AirConditioner:VariableRefrigerantFlow,
     VRFCondAvailSched,       !- Availability Schedule Name
     autosize,                !- Gross Rated Total Cooling Capacity {W}
     3.2917,                  !- Gross Rated Cooling COP {W/W}
-    -5,                      !- Minimum Outdoor Temperature in Cooling Mode {C}
-    43,                      !- Maximum Outdoor Temperature in Cooling Mode {C}
+    -5,                      !- Minimum Condenser Inlet Node Temperature in Cooling Mode {C}
+    43,                      !- Maximum Condenser Inlet Node Temperature in Cooling Mode {C}
     VRFCoolCapFT,            !- Cooling Capacity Ratio Modifier Function of Low Temperature Curve Name
     VRFCoolCapFTBoundary,    !- Cooling Capacity Ratio Boundary Curve Name
     VRFCoolCapFTHi,          !- Cooling Capacity Ratio Modifier Function of High Temperature Curve Name
@@ -3294,8 +3533,8 @@ AirConditioner:VariableRefrigerantFlow,
     autosize,                !- Gross Rated Heating Capacity {W}
     ,                        !- Rated Heating Capacity Sizing Ratio {W/W}
     3.5484,                  !- Gross Rated Heating COP {W/W}
-    -20,                     !- Minimum Outdoor Temperature in Heating Mode {C}
-    20,                      !- Maximum Outdoor Temperature in Heating Mode {C}
+    -20,                     !- Minimum Condenser Inlet Node Temperature in Heating Mode {C}
+    20,                      !- Maximum Condenser Inlet Node Temperature in Heating Mode {C}
     VRFHeatCapFT,            !- Heating Capacity Ratio Modifier Function of Low Temperature Curve Name
     VRFHeatCapFTBoundary,    !- Heating Capacity Ratio Boundary Curve Name
     VRFHeatCapFTHi,          !- Heating Capacity Ratio Modifier Function of High Temperature Curve Name
@@ -3414,8 +3653,7 @@ AirLoopHVAC:OutdoorAirSystem:EquipmentList,
 AirLoopHVAC:OutdoorAirSystem,
     DOAS OA System,          !- Name
     DOAS OA System Controllers,  !- Controller List Name
-    DOAS OA System Equipment,!- Outdoor Air Equipment List Name
-    DOAS Availability Managers;  !- Availability Manager List Name
+    DOAS OA System Equipment;!- Outdoor Air Equipment List Name
 
 
 !-   ===========  ALL OBJECTS IN CLASS: OUTDOORAIR:MIXER ===========
@@ -4100,22 +4338,22 @@ Output:Variable,
 
 Output:Variable,
     *,                       !- Key Value
-    VRF Heat Pump Heating Electric Power,  !- Variable Name
+    VRF Heat Pump Heating Electricity Rate,  !- Variable Name
     timestep;                !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
-    VRF Heat Pump Cooling Electric Power,  !- Variable Name
+    VRF Heat Pump Cooling Electricity Rate,  !- Variable Name
     timestep;                !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
-    VRF Heat Pump Heating Electric Energy,  !- Variable Name
+    VRF Heat Pump Heating Electricity Energy,  !- Variable Name
     timestep;                !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
-    VRF Heat Pump Cooling Electric Energy,  !- Variable Name
+    VRF Heat Pump Cooling Electricity Energy,  !- Variable Name
     timestep;                !- Reporting Frequency
 
 Output:Variable,
@@ -4150,22 +4388,22 @@ Output:Variable,
 
 Output:Variable,
     *,                       !- Key Value
-    VRF Heat Pump Crankcase Heater Electric Power,  !- Variable Name
+    VRF Heat Pump Crankcase Heater Electricity Rate,  !- Variable Name
     timestep;                !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
-    VRF Heat Pump Crankcase Heater Electric Energy,  !- Variable Name
+    VRF Heat Pump Crankcase Heater Electricity Energy,  !- Variable Name
     timestep;                !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
-    VRF Heat Pump Defrost Electric Power,  !- Variable Name
+    VRF Heat Pump Defrost Electricity Rate,  !- Variable Name
     timestep;                !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
-    VRF Heat Pump Defrost Electric Energy,  !- Variable Name
+    VRF Heat Pump Defrost Electricity Energy,  !- Variable Name
     timestep;                !- Reporting Frequency
 
 Output:Variable,
@@ -4180,22 +4418,22 @@ Output:Variable,
 
 Output:Variable,
     TU1,                     !- Key Value
-    Zone VRF Air Terminal Cooling Electric Power,  !- Variable Name
+    Zone VRF Air Terminal Cooling Electricity Rate,  !- Variable Name
     timestep;                !- Reporting Frequency
 
 Output:Variable,
     TU1,                     !- Key Value
-    Zone VRF Air Terminal Heating Electric Power,  !- Variable Name
+    Zone VRF Air Terminal Heating Electricity Rate,  !- Variable Name
     timestep;                !- Reporting Frequency
 
 Output:Variable,
     TU1,                     !- Key Value
-    Zone VRF Air Terminal Cooling Electric Energy,  !- Variable Name
+    Zone VRF Air Terminal Cooling Electricity Energy,  !- Variable Name
     timestep;                !- Reporting Frequency
 
 Output:Variable,
     TU1,                     !- Key Value
-    Zone VRF Air Terminal Heating Electric Energy,  !- Variable Name
+    Zone VRF Air Terminal Heating Electricity Energy,  !- Variable Name
     timestep;                !- Reporting Frequency
 
 Output:Variable,
@@ -4230,7 +4468,7 @@ Output:Variable,
 
 Output:Variable,
     TU1 VRF SUPPLY FAN,      !- Key Value
-    Fan Electric Power,      !- Variable Name
+    Fan Electricity Rate,    !- Variable Name
     timestep;                !- Reporting Frequency
 
 Output:Variable,
@@ -4395,12 +4633,17 @@ Output:Variable,
 
 Output:Variable,
     *,                       !- Key Value
-    System Node Temperature ,!- Variable Name
+    Heating Coil Heating Rate ,  !- Variable Name
     Timestep;                !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
-    System Node Standard Density Volume Flow Rate ,  !- Variable Name
+    Zone Thermostat Heating Setpoint Temperature ,  !- Variable Name
+    Timestep;                !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Thermostat Cooling Setpoint Temperature ,  !- Variable Name
     Timestep;                !- Reporting Frequency
 
 
