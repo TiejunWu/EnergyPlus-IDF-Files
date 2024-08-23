@@ -1,0 +1,211 @@
+EnergyPlus Starting
+EnergyPlus, Version 23.2.0-7636e6b3e9, YMD=2024.08.23 08:57
+Initializing Response Factors
+Calculating CTFs for "BUFFER WALL_\{00015\}"
+Calculating CTFs for "DEFAULT CEILING_\\\{00021\\\}_REVERSED"
+Calculating CTFs for "DEFAULT FLOOR_\{00026\}"
+Calculating CTFs for "\(BASELINE\)  ABOVE GRADE WALL_\{00010\}"
+Calculating CTFs for "\(BASELINE\) BELOW GRADE WALL_\{00013\}"
+Calculating CTFs for "\(BASELINE\) FLOOR_\{00023\}"
+Calculating CTFs for "\(BASELINE\) ROOF_\{00018\}"
+Initializing Window Optical Properties
+Initializing Solar Calculations
+Allocate Solar Module Arrays
+Initializing Zone and Enclosure Report Variables
+Initializing Surface (Shading) Report Variables
+Computing Interior Solar Absorption Factors
+Determining Shadowing Combinations
+Computing Window Shade Absorption Factors
+Proceeding with Initializing Solar Calculations
+Initializing Surfaces
+Initializing Outdoor environment for Surfaces
+Setting up Surface Reporting Variables
+Initializing Temperature and Flux Histories
+Initializing Window Shading
+Computing Interior Absorption Factors
+Computing Interior Diffuse Solar Absorption Factors
+Initializing Solar Heat Gains
+Initializing Internal Heat Gains
+Initializing Interior Solar Distribution
+Initializing Interior Convection Coefficients
+Gathering Information for Predefined Reporting
+Completed Initializing Surface Heat Balance
+Calculate Outside Surface Heat Balance
+Calculate Inside Surface Heat Balance
+Calculate Air Heat Balance
+Initializing HVAC
+Warming up
+Warming up
+Warming up
+Performing Zone Sizing Simulation
+...for Sizing Period: #1 00\:HDD_LAWSON AAF_ GA_ USA_\{02470\}
+Warming up
+Warming up
+Warming up
+Warming up
+Performing Zone Sizing Simulation
+...for Sizing Period: #2 01\:CDD_LAWSON AAF_ GA_ USA_JANUARY_\{02475\}
+Warming up
+Warming up
+Warming up
+Warming up
+Performing Zone Sizing Simulation
+...for Sizing Period: #3 02\:CDD_LAWSON AAF_ GA_ USA_FEBRUARY_\{02480\}
+Warming up
+Warming up
+Warming up
+Warming up
+Performing Zone Sizing Simulation
+...for Sizing Period: #4 03\:CDD_LAWSON AAF_ GA_ USA_MARCH_\{02485\}
+Warming up
+Warming up
+Warming up
+Warming up
+Performing Zone Sizing Simulation
+...for Sizing Period: #5 04\:CDD_LAWSON AAF_ GA_ USA_APRIL_\{02490\}
+Warming up
+Warming up
+Warming up
+Performing Zone Sizing Simulation
+...for Sizing Period: #6 05\:CDD_LAWSON AAF_ GA_ USA_MAY_\{02495\}
+Warming up
+Warming up
+Warming up
+Performing Zone Sizing Simulation
+...for Sizing Period: #7 06\:CDD_LAWSON AAF_ GA_ USA_JUNE_\{02500\}
+Warming up
+Warming up
+Warming up
+Performing Zone Sizing Simulation
+...for Sizing Period: #8 07\:CDD_LAWSON AAF_ GA_ USA_JULY_\{02505\}
+Warming up
+Warming up
+Warming up
+Performing Zone Sizing Simulation
+...for Sizing Period: #9 08\:CDD_LAWSON AAF_ GA_ USA_AUGUST_\{02510\}
+Warming up
+Warming up
+Warming up
+Performing Zone Sizing Simulation
+...for Sizing Period: #10 09\:CDD_LAWSON AAF_ GA_ USA_SEPTEMBER_\{02515\}
+Warming up
+Warming up
+Warming up
+Warming up
+Performing Zone Sizing Simulation
+...for Sizing Period: #11 10\:CDD_LAWSON AAF_ GA_ USA_OCTOBER_\{02520\}
+Warming up
+Warming up
+Warming up
+Warming up
+Performing Zone Sizing Simulation
+...for Sizing Period: #12 11\:CDD_LAWSON AAF_ GA_ USA_NOVEMBER_\{02525\}
+Warming up
+Warming up
+Warming up
+Warming up
+Performing Zone Sizing Simulation
+...for Sizing Period: #13 12\:CDD_LAWSON AAF_ GA_ USA_DECEMBER_\{02530\}
+Calculating System sizing
+...for Sizing Period: #1 00\:HDD_LAWSON AAF_ GA_ USA_\{02470\}
+Calculating System sizing
+...for Sizing Period: #2 01\:CDD_LAWSON AAF_ GA_ USA_JANUARY_\{02475\}
+Calculating System sizing
+...for Sizing Period: #3 02\:CDD_LAWSON AAF_ GA_ USA_FEBRUARY_\{02480\}
+Calculating System sizing
+...for Sizing Period: #4 03\:CDD_LAWSON AAF_ GA_ USA_MARCH_\{02485\}
+Calculating System sizing
+...for Sizing Period: #5 04\:CDD_LAWSON AAF_ GA_ USA_APRIL_\{02490\}
+Calculating System sizing
+...for Sizing Period: #6 05\:CDD_LAWSON AAF_ GA_ USA_MAY_\{02495\}
+Calculating System sizing
+...for Sizing Period: #7 06\:CDD_LAWSON AAF_ GA_ USA_JUNE_\{02500\}
+Calculating System sizing
+...for Sizing Period: #8 07\:CDD_LAWSON AAF_ GA_ USA_JULY_\{02505\}
+Calculating System sizing
+...for Sizing Period: #9 08\:CDD_LAWSON AAF_ GA_ USA_AUGUST_\{02510\}
+Calculating System sizing
+...for Sizing Period: #10 09\:CDD_LAWSON AAF_ GA_ USA_SEPTEMBER_\{02515\}
+Calculating System sizing
+...for Sizing Period: #11 10\:CDD_LAWSON AAF_ GA_ USA_OCTOBER_\{02520\}
+Calculating System sizing
+...for Sizing Period: #12 11\:CDD_LAWSON AAF_ GA_ USA_NOVEMBER_\{02525\}
+Calculating System sizing
+...for Sizing Period: #13 12\:CDD_LAWSON AAF_ GA_ USA_DECEMBER_\{02530\}
+Adjusting Air System Sizing
+Adjusting Standard 62.1 Ventilation Sizing
+Initializing Simulation
+Reporting Surfaces
+Beginning Primary Simulation
+Initializing New Environment Parameters
+Warming up {1}
+Warming up {2}
+Warming up {3}
+Starting Simulation at 01/15 for 00\:HDD_LAWSON AAF_ GA_ USA_\{02470\}
+Initializing New Environment Parameters
+Warming up {1}
+Warming up {2}
+Warming up {3}
+Warming up {4}
+Starting Simulation at 01/21 for 01\:CDD_LAWSON AAF_ GA_ USA_JANUARY_\{02475\}
+Initializing New Environment Parameters
+Warming up {1}
+Warming up {2}
+Warming up {3}
+Warming up {4}
+Starting Simulation at 02/21 for 02\:CDD_LAWSON AAF_ GA_ USA_FEBRUARY_\{02480\}
+Initializing New Environment Parameters
+Warming up {1}
+Warming up {2}
+Warming up {3}
+Starting Simulation at 03/21 for 03\:CDD_LAWSON AAF_ GA_ USA_MARCH_\{02485\}
+Initializing New Environment Parameters
+Warming up {1}
+Warming up {2}
+Warming up {3}
+Starting Simulation at 04/21 for 04\:CDD_LAWSON AAF_ GA_ USA_APRIL_\{02490\}
+Initializing New Environment Parameters
+Warming up {1}
+Warming up {2}
+Warming up {3}
+Starting Simulation at 05/21 for 05\:CDD_LAWSON AAF_ GA_ USA_MAY_\{02495\}
+Initializing New Environment Parameters
+Warming up {1}
+Warming up {2}
+Warming up {3}
+Starting Simulation at 06/21 for 06\:CDD_LAWSON AAF_ GA_ USA_JUNE_\{02500\}
+Initializing New Environment Parameters
+Warming up {1}
+Warming up {2}
+Warming up {3}
+Starting Simulation at 07/21 for 07\:CDD_LAWSON AAF_ GA_ USA_JULY_\{02505\}
+Initializing New Environment Parameters
+Warming up {1}
+Warming up {2}
+Warming up {3}
+Starting Simulation at 08/21 for 08\:CDD_LAWSON AAF_ GA_ USA_AUGUST_\{02510\}
+Initializing New Environment Parameters
+Warming up {1}
+Warming up {2}
+Warming up {3}
+Starting Simulation at 09/21 for 09\:CDD_LAWSON AAF_ GA_ USA_SEPTEMBER_\{02515\}
+Initializing New Environment Parameters
+Warming up {1}
+Warming up {2}
+Warming up {3}
+Starting Simulation at 10/21 for 10\:CDD_LAWSON AAF_ GA_ USA_OCTOBER_\{02520\}
+Initializing New Environment Parameters
+Warming up {1}
+Warming up {2}
+Warming up {3}
+Warming up {4}
+Starting Simulation at 11/21 for 11\:CDD_LAWSON AAF_ GA_ USA_NOVEMBER_\{02525\}
+Initializing New Environment Parameters
+Warming up {1}
+Warming up {2}
+Warming up {3}
+Warming up {4}
+Starting Simulation at 12/21 for 12\:CDD_LAWSON AAF_ GA_ USA_DECEMBER_\{02530\}
+Writing tabular output file results using HTML format.
+Writing final SQL reports
+EnergyPlus Run Time=00hr 01min 37.59sec
